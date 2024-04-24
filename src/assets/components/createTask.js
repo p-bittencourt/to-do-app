@@ -21,7 +21,7 @@ const taskModal = (formElement) => {
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
         <div class="modal-body">
-          ${formElement.outerHTML} <!-- Aqui você pode adicionar o formulário para criar uma nova tarefa -->
+          ${formElement.outerHTML}
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

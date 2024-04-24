@@ -11,33 +11,44 @@ export default function displayTasks(tasks) {
     taskDisplay.appendChild(p);
   } else {
     tasks.forEach((task) => {
-      taskDisplay.appendChild(taskFormatter(task));
+      taskDisplay.appendChild(taskCard(task));
     });
   }
 
   return taskDisplay;
 }
 
-const taskFormatter = (task) => {
+const taskCard = (task) => {
   const taskDiv = document.createElement('div');
   taskDiv.classList.add('task');
+
+  const mainInfo = document.createElement('div');
+  mainInfo.classList.add('main-info');
+
   const title = document.createElement('h4');
   title.textContent = task.title;
-  taskDiv.appendChild(title);
+  mainInfo.appendChild(title);
   const description = document.createElement('p');
   description.textContent = task.description;
-  taskDiv.appendChild(description);
+  mainInfo.appendChild(description);
+
+  taskDiv.appendChild(mainInfo);
+
+  const extraInfo = document.createElement('div');
+  extraInfo.classList.add('extra-info');
+
   const dueDate = document.createElement('p');
   dueDate.textContent = `Due date: ${task.dueDate}`;
-  taskDiv.appendChild(dueDate);
+  extraInfo.appendChild(dueDate);
   const priority = document.createElement('p');
   priority.textContent = `Priority: ${task.priority}`;
-  taskDiv.appendChild(priority);
+  extraInfo.appendChild(priority);
   const project = document.createElement('p');
   project.textContent = `Project: ${task.project}`;
-  taskDiv.appendChild(project);
+  extraInfo.appendChild(project);
   const completed = document.createElement('p');
   completed.textContent = `Completed: ${task.completed}`;
-  taskDiv.appendChild(completed);
+
+  taskDiv.appendChild(extraInfo);
   return taskDiv;
 };
