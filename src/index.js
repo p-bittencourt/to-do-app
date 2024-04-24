@@ -1,3 +1,5 @@
-import "../node_modules/bootstrap/js/dist/collapse.js";
-import "jquery";
-import "../dist/assets/styles/style.css";
+import displayTasks from './assets/components/displayTasks.js';
+import '../dist/assets/styles/style.css';
+
+let content = document.getElementById('main-content');
+content.appendChild(displayTasks());
