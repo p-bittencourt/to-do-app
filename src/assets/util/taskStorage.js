@@ -5,6 +5,8 @@ function storeTask(task) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 
   console.log('Task stored');
+  const event = new Event('taskStored');
+  document.body.dispatchEvent(event);
 }
 
 function retrieveTasks() {

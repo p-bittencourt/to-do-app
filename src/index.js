@@ -4,7 +4,7 @@ import { retrieveTasks } from './assets/util/taskStorage.js';
 import { Modal } from 'bootstrap';
 import '../dist/assets/styles/style.css';
 
-const tasks = retrieveTasks();
+let tasks = retrieveTasks();
 
 let content = document.getElementById('main-content');
 
@@ -20,6 +20,19 @@ addNewTaskDiv.appendChild(addNewTaskButton);
 addNewTaskButton.addEventListener('click', () => {
   modal.show();
 });
+addNewTaskDiv.appendChild(addNewTaskButton);
 
 content.appendChild(addNewTaskDiv);
 content.appendChild(displayTasks(tasks));
+
+document.body.addEventListener('taskStored', updateTaskDisplay);
+
+function updateTaskDisplay() {
+  content.innerHTML = '';
+  modal.hide();
+  tasks = retrieveTasks();
+  content.appendChild(addNewTaskDiv);
+  content.appendChild(displayTasks(tasks));
+}
+
+updateTaskDisplay();
