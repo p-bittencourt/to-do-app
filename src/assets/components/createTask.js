@@ -1,4 +1,5 @@
 import task from '../util/tasks';
+import { storeTask } from '../util/taskStorage';
 
 export default function createTask() {
   const modal = document.createElement('div');
@@ -65,9 +66,7 @@ const submitForm = (event) => {
   const taskDescription = document.getElementById('taskDescription').value;
   const taskDueDate = document.getElementById('taskDueDate').value;
   const taskPriority = document.getElementById('taskPriority').value;
-
   const newTask = task(taskTitle, taskDescription, taskDueDate, taskPriority);
 
-  console.log(taskTitle, taskDescription, taskDueDate, taskPriority);
-  console.log(newTask);
+  storeTask(newTask);
 };
