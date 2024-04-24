@@ -1,4 +1,4 @@
-@use "./custom" as *;
+@use './custom' as *;
 
 html,
 body {
@@ -73,6 +73,7 @@ body {
     .main-content {
       background-color: whitesmoke;
       height: 92%;
+      overflow-y: auto;
     }
 
     @include media-breakpoint-up(md) {
