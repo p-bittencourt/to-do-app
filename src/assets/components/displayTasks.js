@@ -1,3 +1,5 @@
+import { deleteTask } from '../util/taskStorage';
+
 export default function displayTasks(tasks) {
   const taskDisplay = document.createElement('div');
   taskDisplay.classList.add('task-display');
@@ -22,6 +24,8 @@ const taskCard = (task) => {
   const taskDiv = document.createElement('div');
   taskDiv.classList.add('task');
 
+  // Set mainInfo and buttons
+  // #region
   const mainInfo = document.createElement('div');
   mainInfo.classList.add('main-info');
 
@@ -32,8 +36,27 @@ const taskCard = (task) => {
   description.textContent = task.description;
   mainInfo.appendChild(description);
 
-  taskDiv.appendChild(mainInfo);
+  const deleteButton = document.createElement('button');
+  deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', () => {
+    // Call a function to handle the delete action
+    deleteTask(task);
+  });
+  mainInfo.appendChild(deleteButton);
 
+  const editButton = document.createElement('button');
+  editButton.textContent = 'Edit';
+  editButton.addEventListener('click', () => {
+    // Call a function to handle the edit action
+    editTask(task);
+  });
+  mainInfo.appendChild(editButton);
+
+  taskDiv.appendChild(mainInfo);
+  // #endregion
+
+  // Set extraInfo
+  // #region
   const extraInfo = document.createElement('div');
   extraInfo.classList.add('extra-info');
 
@@ -48,7 +71,8 @@ const taskCard = (task) => {
   extraInfo.appendChild(project);
   const completed = document.createElement('p');
   completed.textContent = `Completed: ${task.completed}`;
-
   taskDiv.appendChild(extraInfo);
+  // #endregion
+
   return taskDiv;
 };

@@ -3,9 +3,7 @@ function storeTask(task) {
   const tasks = retrieveTasks();
   tasks.push(task);
   localStorage.setItem('tasks', JSON.stringify(tasks));
-
-  console.log('Task stored');
-  const event = new Event('taskStored');
+  const event = new Event('taskUpdated');
   document.body.dispatchEvent(event);
 }
 
@@ -14,4 +12,13 @@ function retrieveTasks() {
   return JSON.parse(localStorage.getItem('tasks')) || [];
 }
 
-export { storeTask, retrieveTasks };
+function deleteTask(task) {
+  // delete the task from the tasks array in localStorage
+  const tasks = retrieveTasks();
+  const newTasks = tasks.filter((t) => t.title !== task.title);
+  localStorage.setItem('tasks', JSON.stringify(newTasks));
+  const event = new Event('taskUpdated');
+  document.body.dispatchEvent(event);
+}
+
+export { storeTask, retrieveTasks, deleteTask };

@@ -25,7 +25,7 @@ addNewTaskDiv.appendChild(addNewTaskButton);
 content.appendChild(addNewTaskDiv);
 content.appendChild(displayTasks(tasks));
 
-document.body.addEventListener('taskStored', updateTaskDisplay);
+document.body.addEventListener('taskUpdated', updateTaskDisplay);
 
 function updateTaskDisplay() {
   content.innerHTML = '';
