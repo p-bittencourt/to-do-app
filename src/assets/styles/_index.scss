@@ -28,6 +28,13 @@ body {
     height: 8vh;
     background-color: bisque;
     margin-top: 0;
+    align-items: center;
+
+    @include media-breakpoint-up(md) {
+      h1 {
+        margin-left: 2rem;
+      }
+    }
   }
 
   .content-container {

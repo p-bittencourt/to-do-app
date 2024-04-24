@@ -11,8 +11,9 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
+      template: "./src/index.html",
       title: "To Do App",
+      favicon: "./src/assets/badge-check_7653142.png",
     }),
   ],
   output: {
@@ -31,6 +32,11 @@ module.exports = {
         use: {
           loader: "babel-loader",
         },
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        use: "file-loader",
+        type: "asset/resource",
       },
     ],
   },
