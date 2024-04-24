@@ -1,3 +1,5 @@
+import task from '../util/tasks';
+
 export default function createTask() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
@@ -44,6 +46,15 @@ const createTaskForm = () => {
             <label for="taskDueDate" class="form-label">Due Date</label>
             <input type="date" class="form-control" id="taskDueDate">
         </div>
+        <div class="mb-3">
+        <label for="taskPriority" class="form-label">Priority</label>
+            <select class="form-select" id="taskPriority">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+            </select>
+        </div>   
+    </div>
     `;
   return form;
 };
@@ -53,6 +64,10 @@ const submitForm = (event) => {
   const taskTitle = document.getElementById('taskTitle').value;
   const taskDescription = document.getElementById('taskDescription').value;
   const taskDueDate = document.getElementById('taskDueDate').value;
+  const taskPriority = document.getElementById('taskPriority').value;
 
-  console.log(taskTitle, taskDescription, taskDueDate);
+  const newTask = task(taskTitle, taskDescription, taskDueDate, taskPriority);
+
+  console.log(taskTitle, taskDescription, taskDueDate, taskPriority);
+  console.log(newTask);
 };
