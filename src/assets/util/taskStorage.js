@@ -21,4 +21,6 @@ function deleteTask(task) {
   document.body.dispatchEvent(event);
 }
 
+function editTask(task) {}
+
 export { storeTask, retrieveTasks, deleteTask };

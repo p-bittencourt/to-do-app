@@ -36,22 +36,6 @@ const taskCard = (task) => {
   description.textContent = task.description;
   mainInfo.appendChild(description);
 
-  const deleteButton = document.createElement('button');
-  deleteButton.textContent = 'Delete';
-  deleteButton.addEventListener('click', () => {
-    // Call a function to handle the delete action
-    deleteTask(task);
-  });
-  mainInfo.appendChild(deleteButton);
-
-  const editButton = document.createElement('button');
-  editButton.textContent = 'Edit';
-  editButton.addEventListener('click', () => {
-    // Call a function to handle the edit action
-    editTask(task);
-  });
-  mainInfo.appendChild(editButton);
-
   taskDiv.appendChild(mainInfo);
   // #endregion
 
@@ -72,6 +56,24 @@ const taskCard = (task) => {
   const completed = document.createElement('p');
   completed.textContent = `Completed: ${task.completed}`;
   taskDiv.appendChild(extraInfo);
+
+  const deleteButton = document.createElement('button');
+  deleteButton.classList.add('btn', 'btn-danger', 'mx-1');
+  deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', () => {
+    // Call a function to handle the delete action
+    deleteTask(task);
+  });
+  extraInfo.appendChild(deleteButton);
+
+  const editButton = document.createElement('button');
+  editButton.classList.add('btn', 'btn-light', 'mx-1');
+  editButton.textContent = 'Edit';
+  editButton.addEventListener('click', () => {
+    // Call a function to handle the edit action
+    editTask(task);
+  });
+  extraInfo.appendChild(editButton);
   // #endregion
 
   return taskDiv;

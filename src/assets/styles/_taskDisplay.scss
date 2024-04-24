@@ -6,6 +6,10 @@
   align-items: center;
   width: 100%;
   padding: 1rem;
+
+  @include media-breakpoint-down(md) {
+    padding: 0;
+  }
 }
 
 .task {
@@ -26,5 +30,17 @@
   .extra-info {
     width: 35%;
     padding: 0.3rem;
+  }
+
+  @include media-breakpoint-down(md) {
+    width: 90%; // Aumenta a largura do card para 90% em telas pequenas
+    padding: 0.4rem; // Reduz o padding do card para 0.4rem em telas pequenas
+    margin: 0.4rem; // Reduz a margem do card para 0.4rem em telas pequenas
+    flex-direction: column;
+
+    .main-info,
+    .extra-info {
+      padding: 0.2rem; // Reduz o padding das seções de informações para 0.2rem em telas pequenas
+    }
   }
 }
