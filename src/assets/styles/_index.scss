@@ -1,4 +1,52 @@
-footer {
-  position: fixed;
-  bottom: 0;
+@use "./custom" as *;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: lightblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app-container {
+  position: relative;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 100vw;
+  height: 85vh;
+  overflow: auto;
+
+  .header-container {
+    height: 8vh;
+    background-color: bisque;
+    margin-top: 0;
+  }
+
+  .content-container {
+    height: calc(100% - 12vh);
+    display: flex;
+
+    .sidebar {
+      background-color: aqua;
+      height: 100%;
+    }
+
+    .main-content {
+      background-color: lightcoral;
+      height: 100%;
+    }
+  }
+
+  .footer-container {
+    height: 4vh;
+    background-color: bisque;
+    margin-bottom: 0;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+  }
 }

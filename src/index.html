@@ -6,14 +6,45 @@
     <title>To Do App</title>
   </head>
   <body>
-    <header class="container-fluid p-3 bg-light d-flex align-items-center">
-      <h1 class="ps-3 display-3">Let's get it done</h1>
-    </header>
-    <main>
-      <h1>Main</h1>
-    </main>
-    <footer class="container-fluid p-1 bg-light d-flex justify-content-center">
-      <p class="lead pt-2">BIT Productions</p>
-    </footer>
+    <div class="container app-container">
+      <div class="row header-container">
+        <p>header row</p>
+        <button
+          class="navbar-toggler d-lg-none"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon">Button</span>
+        </button>
+      </div>
+      <div class="row content-container">
+        <div class="col-2 sidebar">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-10 main-content">
+          <p>main content</p>
+        </div>
+      </div>
+      <div class="row footer-container">
+        <p>footer row</p>
+      </div>
+    </div>
   </body>
 </html>
