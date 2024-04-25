@@ -16,7 +16,7 @@ function retrieveTasks() {
 function deleteTask(task) {
   // delete the task from the tasks array in localStorage
   const tasks = retrieveTasks();
-  const newTasks = tasks.filter((t) => t.title !== task.title);
+  const newTasks = tasks.filter((t) => t.id != task.id);
   localStorage.setItem('tasks', JSON.stringify(newTasks));
   updateTaskEvent();
 }

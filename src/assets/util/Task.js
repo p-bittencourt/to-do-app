@@ -9,15 +9,16 @@ export default class Task {
     project = null,
     completed = false
   ) {
-    this._id = uuidv4();
-    this._title = title;
-    this._description = description;
-    this._dueDate = dueDate;
-    this._priority = priority;
-    this._project = project;
-    this._completed = completed;
+    this.id = uuidv4();
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+    this.project = project;
+    this.completed = completed;
   }
 
+  /*
   // Getters
   get title() {
     return this._title;
@@ -70,5 +71,5 @@ export default class Task {
 
   set completed(newCompleted) {
     this._completed = newCompleted;
-  }
+  } */
 }

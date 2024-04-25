@@ -10,9 +10,8 @@ export default function createTaskForm(task = {}) {
                 </div>
                 <div class="mb-3">
                     <label for="taskDescription" class="form-label">Task Description</label>
-                    <textarea class="form-control" id="taskDescription" rows="3" placeholder="Enter task description" value="${
-                      task.description || ''
-                    }"></textarea>
+                    <textarea class="form-control" id="taskDescription" rows="3" placeholder="Enter task description">
+                    ${task.description || ''}</textarea>
                 </div>    
               </div>
               <div class="extra-info">
