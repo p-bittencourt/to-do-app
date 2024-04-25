@@ -1,4 +1,4 @@
-import { deleteTask } from '../util/taskStorage';
+import { deleteTas, editTask } from '../util/taskStorage';
 
 export default function displayTasks(tasks) {
   const taskDisplay = document.createElement('div');
@@ -23,8 +23,9 @@ export default function displayTasks(tasks) {
 const taskCard = (task) => {
   const taskDiv = document.createElement('div');
   taskDiv.classList.add('task');
+  taskDiv.id = task.title;
 
-  // Set mainInfo and buttons
+  // Set mainInfo
   // #region
   const mainInfo = document.createElement('div');
   mainInfo.classList.add('main-info');
@@ -39,7 +40,7 @@ const taskCard = (task) => {
   taskDiv.appendChild(mainInfo);
   // #endregion
 
-  // Set extraInfo
+  // Set extraInfo and buttons
   // #region
   const extraInfo = document.createElement('div');
   extraInfo.classList.add('extra-info');
