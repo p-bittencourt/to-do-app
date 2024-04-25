@@ -23,25 +23,39 @@ function deleteTask(task) {
 
 function editTask(task) {
   const form = createTaskForm(task);
-
-  console.log(task);
-
   const confirmEdit = document.createElement('button');
   confirmEdit.type = 'submit';
   confirmEdit.textContent = 'Confirm';
   confirmEdit.classList.add('btn', 'btn-light', 'edit-button');
-
   const extraInfoDiv = form.querySelector('.extra-info');
   extraInfoDiv.appendChild(confirmEdit);
-
-  const formContainer = document.getElementById(`${task.title}`);
+  const formContainer = document.getElementById(`${task.id}`);
   formContainer.innerHTML = '';
   formContainer.appendChild(form);
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+
+    const newTitle = form.querySelector('#taskTitle').value;
+    const newDescription = form.querySelector('#taskDescription').value;
+    const newDueDate = form.querySelector('#taskDueDate').value;
+    const newPriority = form.querySelector('#taskPriority').value;
+
+    task.title = newTitle;
+    task.description = newDescription;
+    task.dueDate = newDueDate;
+    task.priority = newPriority;
+
+    updateTaskInStorage(task);
     updateTaskEvent();
   });
+}
+
+function updateTaskInStorage(task) {
+  const tasks = retrieveTasks();
+  const index = tasks.findIndex((t) => t.id === task.id);
+  tasks[index] = task;
+  localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 function updateTaskEvent() {

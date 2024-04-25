@@ -1,4 +1,4 @@
-import task from '../util/tasks';
+import Task from '../util/Task';
 import { storeTask } from '../util/taskStorage';
 import createTaskForm from '../util/createTaskForm';
 
@@ -39,7 +39,12 @@ const submitForm = (event) => {
   const taskDescription = document.getElementById('taskDescription').value;
   const taskDueDate = document.getElementById('taskDueDate').value;
   const taskPriority = document.getElementById('taskPriority').value;
-  const newTask = task(taskTitle, taskDescription, taskDueDate, taskPriority);
+  const newTask = new Task(
+    taskTitle,
+    taskDescription,
+    taskDueDate,
+    taskPriority
+  );
 
   storeTask(newTask);
 };

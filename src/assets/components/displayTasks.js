@@ -23,7 +23,7 @@ export default function displayTasks(tasks) {
 const taskCard = (task) => {
   const taskDiv = document.createElement('div');
   taskDiv.classList.add('task');
-  taskDiv.id = task.title;
+  taskDiv.id = task.id;
 
   // Set mainInfo
   // #region
