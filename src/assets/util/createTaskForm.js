@@ -4,14 +4,15 @@ export default function createTaskForm(task = {}) {
               <div class="main-info">
                 <div class="mb-3">
                     <label for="taskTitle" class="form-label">Task Title</label>
-                    <input type="text" class="form-control" id="taskTitle" placeholder="Enter task title" value="${
+                    <input type="text" class="form-control" id="taskTitle" value="${
                       task.title || ''
                     }">
                 </div>
                 <div class="mb-3">
                     <label for="taskDescription" class="form-label">Task Description</label>
-                    <textarea class="form-control" id="taskDescription" rows="3" placeholder="Enter task description">
-                    ${task.description || ''}</textarea>
+                    <textarea class="form-control" id="taskDescription" rows="3">${
+                      task.description || ''
+                    }</textarea>
                 </div>    
               </div>
               <div class="extra-info">
@@ -28,7 +29,7 @@ export default function createTaskForm(task = {}) {
                           task.priority === 'low' ? 'selected' : ''
                         }>Low</option>
                         <option value="medium" ${
-                          task.priority === 'medium' || task.priority === ''
+                          task.priority === 'medium' || !task.priority
                             ? 'selected'
                             : ''
                         }>Medium</option>
