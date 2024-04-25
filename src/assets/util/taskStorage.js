@@ -22,7 +22,17 @@ function deleteTask(task) {
 }
 
 function editTask(task) {
-  const form = createTaskForm();
+  const form = createTaskForm(task);
+
+  console.log(task);
+
+  const confirmEdit = document.createElement('button');
+  confirmEdit.type = 'submit';
+  confirmEdit.textContent = 'Confirm';
+  confirmEdit.classList.add('btn', 'btn-light', 'edit-button');
+
+  const extraInfoDiv = form.querySelector('.extra-info');
+  extraInfoDiv.appendChild(confirmEdit);
 
   const formContainer = document.getElementById(`${task.title}`);
   formContainer.innerHTML = '';

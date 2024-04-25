@@ -58,6 +58,8 @@
     .extra-info {
       width: 35%;
       padding: 0.3rem;
+      display: flex;
+      flex-direction: column;
     }
   }
 }
