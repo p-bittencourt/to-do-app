@@ -35,20 +35,23 @@ function editTask(task) {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-
-    const newTitle = form.querySelector('#taskTitle').value;
-    const newDescription = form.querySelector('#taskDescription').value;
-    const newDueDate = form.querySelector('#taskDueDate').value;
-    const newPriority = form.querySelector('#taskPriority').value;
-
-    task.title = newTitle;
-    task.description = newDescription;
-    task.dueDate = newDueDate;
-    task.priority = newPriority;
-
-    updateTaskInStorage(task);
+    handleNewTaskInfo(form, task);
     updateTaskEvent();
   });
+}
+
+function handleNewTaskInfo(form, task) {
+  const newTitle = form.querySelector('#taskTitle').value;
+  const newDescription = form.querySelector('#taskDescription').value;
+  const newDueDate = form.querySelector('#taskDueDate').value;
+  const newPriority = form.querySelector('#taskPriority').value;
+
+  task.title = newTitle;
+  task.description = newDescription;
+  task.dueDate = newDueDate;
+  task.priority = newPriority;
+
+  updateTaskInStorage(task);
 }
 
 function updateTaskInStorage(task) {
