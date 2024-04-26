@@ -4,10 +4,23 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background-color: lightblue;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+body::after {
+  content: '';
+  background-image: url('/src/assets/blank-concrete-white-wall-texture-background.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.5; // Ajuste a opacidade para o valor desejado
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
 }
 
 .app-container {
