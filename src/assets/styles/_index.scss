@@ -94,7 +94,18 @@ body::after {
         justify-content: flex-end;
 
         button {
-          margin-right: 1rem;
+          margin-right: 1.8rem;
+        }
+      }
+
+      @include media-breakpoint-down(md) {
+        .add-new-task {
+          justify-content: center;
+
+          button {
+            margin-right: 0;
+            margin-top: -1rem;
+          }
         }
       }
     }

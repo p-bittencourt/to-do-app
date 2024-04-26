@@ -26,20 +26,20 @@ function editTask(task) {
   const confirmEdit = document.createElement('button');
   confirmEdit.type = 'submit';
   confirmEdit.textContent = 'Confirm';
-  confirmEdit.classList.add('btn', 'btn-primary', 'edit-button');
+  confirmEdit.classList.add('btn', 'btn-light', 'edit-button');
 
   const cancelEdit = document.createElement('button');
   cancelEdit.type = 'button';
   cancelEdit.textContent = 'Cancel';
-  cancelEdit.classList.add('btn', 'btn-light', 'edit-button');
+  cancelEdit.classList.add('btn', 'btn-danger', 'edit-button');
   cancelEdit.addEventListener('click', () => {
     updateTaskEvent();
   });
 
   const buttonsDiv = document.createElement('div');
   buttonsDiv.classList.add('edit-buttons-div');
-  buttonsDiv.appendChild(confirmEdit);
   buttonsDiv.appendChild(cancelEdit);
+  buttonsDiv.appendChild(confirmEdit);
 
   const extraInfoDiv = form.querySelector('.extra-info');
   extraInfoDiv.appendChild(buttonsDiv);

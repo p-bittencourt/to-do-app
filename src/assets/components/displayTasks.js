@@ -58,6 +58,9 @@ const taskCard = (task) => {
   completed.textContent = `Completed: ${task.completed}`;
   taskDiv.appendChild(extraInfo);
 
+  const buttonsDiv = document.createElement('div');
+  buttonsDiv.classList.add('edit-buttons-div');
+
   const deleteButton = document.createElement('button');
   deleteButton.classList.add('btn', 'btn-danger', 'mx-1');
   deleteButton.textContent = 'Delete';
@@ -68,7 +71,8 @@ const taskCard = (task) => {
       deleteTask(task);
     }
   });
-  extraInfo.appendChild(deleteButton);
+
+  buttonsDiv.appendChild(deleteButton);
 
   const editButton = document.createElement('button');
   editButton.classList.add('btn', 'btn-light', 'mx-1');
@@ -77,7 +81,9 @@ const taskCard = (task) => {
     // Call a function to handle the edit action
     editTask(task);
   });
-  extraInfo.appendChild(editButton);
+
+  buttonsDiv.appendChild(editButton);
+  extraInfo.appendChild(buttonsDiv);
   // #endregion
 
   return taskDiv;
