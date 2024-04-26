@@ -15,6 +15,7 @@ export default function createTask() {
 
 const taskModal = (formElement) => {
   return `
+  <form id="taskForm"> 
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -26,10 +27,11 @@ const taskModal = (formElement) => {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="submitButton">Create Task</button>
+          <button type="submit" class="btn btn-primary" id="submitButton">Create Task</button>
         </div>
       </div>
     </div>
+  </form>
   `;
 };
 
@@ -39,6 +41,12 @@ const submitForm = (event) => {
   const taskDescription = document.getElementById('taskDescription').value;
   const taskDueDate = document.getElementById('taskDueDate').value;
   const taskPriority = document.getElementById('taskPriority').value;
+
+  if (!taskTitle.trim()) {
+    alert('Task title is required');
+    return;
+  }
+
   const newTask = new Task(
     taskTitle,
     taskDescription,

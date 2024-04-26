@@ -1,13 +1,12 @@
 export default function createTaskForm(task = {}) {
   const form = document.createElement('form');
-  form.id = 'taskForm';
   form.innerHTML = `
               <div class="main-info">
                 <div class="mb-3">
                     <label for="taskTitle" class="form-label">Task Title</label>
                     <input type="text" class="form-control" id="taskTitle" value="${
                       task.title || ''
-                    }">
+                    }" required>
                 </div>
                 <div class="mb-3">
                     <label for="taskDescription" class="form-label">Task Description</label>
