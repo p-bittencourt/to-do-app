@@ -9,6 +9,9 @@
 
   @include media-breakpoint-down(md) {
     padding: 0;
+    h3 {
+      margin-top: 1rem;
+    }
   }
 }
 
@@ -17,7 +20,7 @@
   flex-direction: row;
   align-items: stretch;
   width: 75%;
-  background-color: lightpink;
+  background-color: $theme-white;
   padding: 0.8rem;
   margin: 0.8rem;
   border-radius: 10px;
@@ -42,6 +45,7 @@
     .main-info,
     .extra-info {
       padding: 0.2rem; // Reduz o padding das seções de informações para 0.2rem em telas pequenas
+      width: 100%;
     }
   }
 

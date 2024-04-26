@@ -15,6 +15,7 @@ const modal = new Modal(taskModal);
 let addNewTaskDiv = document.createElement('div');
 addNewTaskDiv.classList.add('add-new-task');
 let addNewTaskButton = document.createElement('button');
+addNewTaskButton.classList.add('btn', 'btn-primary');
 addNewTaskButton.textContent = 'Add New Task';
 addNewTaskDiv.appendChild(addNewTaskButton);
 addNewTaskButton.addEventListener('click', () => {

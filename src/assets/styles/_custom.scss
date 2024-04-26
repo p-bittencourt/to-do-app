@@ -1,5 +1,16 @@
 // THEME COLORS
+$theme-yellow: #f2cf63;
+$theme-darkyellow: #f2c53d;
+$accent: #d98e04;
+$theme-brown: #a65d03;
 
-// GRAYS AND WHITES
+$theme-white: #f0f0f2;
 
-@import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+$dark: $theme-brown;
+$light: $theme-yellow;
+$danger: $theme-brown;
+$success: $theme-yellow;
+$warning: $theme-brown;
+$primary: $theme-yellow;
+
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
