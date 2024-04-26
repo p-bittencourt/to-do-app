@@ -1,5 +1,6 @@
 export default function createTaskForm(task = {}) {
   const form = document.createElement('form');
+  form.id = 'taskForm';
   form.innerHTML = `
               <div class="main-info">
                 <div class="mb-3">

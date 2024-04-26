@@ -26,7 +26,7 @@ const taskModal = (formElement) => {
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" id="submitButton">Save changes</button>
+          <button type="button" class="btn btn-primary" id="submitButton">Create Task</button>
         </div>
       </div>
     </div>
@@ -47,4 +47,7 @@ const submitForm = (event) => {
   );
 
   storeTask(newTask);
+
+  const form = document.getElementById('taskForm');
+  form.reset();
 };
