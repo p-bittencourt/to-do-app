@@ -63,7 +63,10 @@ const taskCard = (task) => {
   deleteButton.textContent = 'Delete';
   deleteButton.addEventListener('click', () => {
     // Call a function to handle the delete action
-    deleteTask(task);
+    const confirmDelete = confirm('Are you sure you want to delete this task?');
+    if (confirmDelete) {
+      deleteTask(task);
+    }
   });
   extraInfo.appendChild(deleteButton);
 
