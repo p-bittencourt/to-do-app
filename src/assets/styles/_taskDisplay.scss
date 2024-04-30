@@ -17,7 +17,7 @@
 
 .task {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: stretch;
   width: 75%;
   background-color: $theme-white;
@@ -27,17 +27,19 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 
   .main-info {
-    width: 65%;
     padding: 0.5rem;
+    display: flex;
+    justify-content: space-around;
   }
 
   .extra-info {
-    width: 35%;
     padding: 0.3rem;
+    display: flex;
+    justify-content: space-around;
 
     .edit-buttons-div {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: space-around;
     }
   }

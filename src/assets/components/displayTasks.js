@@ -36,6 +36,13 @@ const taskCard = (task) => {
   const description = document.createElement('p');
   description.textContent = task.description;
   mainInfo.appendChild(description);
+  const checkDone = document.createElement('button');
+  checkDone.classList.add('btn', 'btn-light', 'mx-1');
+  checkDone.textContent = 'Done';
+  checkDone.addEventListener('click', () => {
+    console.log('done');
+  });
+  mainInfo.appendChild(checkDone);
 
   taskDiv.appendChild(mainInfo);
   // #endregion
@@ -45,17 +52,21 @@ const taskCard = (task) => {
   const extraInfo = document.createElement('div');
   extraInfo.classList.add('extra-info');
 
+  const infoContainer = document.createElement('div');
+  infoContainer.classList.add('info-container');
+
   const dueDate = document.createElement('p');
   dueDate.textContent = `Due date: ${task.dueDate}`;
-  extraInfo.appendChild(dueDate);
+  infoContainer.appendChild(dueDate);
   const priority = document.createElement('p');
   priority.textContent = `Priority: ${task.priority}`;
-  extraInfo.appendChild(priority);
+  infoContainer.appendChild(priority);
   const project = document.createElement('p');
   project.textContent = `Project: ${task.project}`;
-  extraInfo.appendChild(project);
+  infoContainer.appendChild(project);
   const completed = document.createElement('p');
   completed.textContent = `Completed: ${task.completed}`;
+  extraInfo.appendChild(infoContainer);
   taskDiv.appendChild(extraInfo);
 
   const buttonsDiv = document.createElement('div');
