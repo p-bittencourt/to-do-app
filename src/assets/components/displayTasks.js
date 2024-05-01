@@ -1,3 +1,4 @@
+import { format } from 'date-fns';
 import { deleteTask, editTask } from '../util/taskStorage';
 
 export default function displayTasks(tasks) {
@@ -61,8 +62,16 @@ const taskCard = (task) => {
 
   // Container info
   const dueDate = document.createElement('p');
-  dueDate.textContent = `Due date: ${task.dueDate}`;
+  let formattedDate = 'No due date';
+  if (task.dueDate) {
+    const date = new Date(task.dueDate);
+    if (!isNaN(date)) {
+      formattedDate = format(date, 'dd/MM/yyyy');
+    }
+  }
+  dueDate.textContent = `Due: ${formattedDate}`;
   infoContainer.appendChild(dueDate);
+
   const priority = document.createElement('p');
   priority.textContent = `Priority: ${task.priority}`;
   infoContainer.appendChild(priority);
