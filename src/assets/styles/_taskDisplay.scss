@@ -20,6 +20,10 @@
   justify-content: space-around;
 }
 
+.task:hover {
+  cursor: pointer;
+}
+
 .task:hover .extra-info,
 .task .extra-info.show {
   display: flex;

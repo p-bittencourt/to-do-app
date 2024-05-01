@@ -78,11 +78,13 @@ const taskCard = (task) => {
   const priority = document.createElement('p');
   priority.textContent = `Priority: ${task.priority}`;
   infoContainer.appendChild(priority);
-  const project = document.createElement('p');
-  project.textContent = `Project: ${task.project}`;
-  infoContainer.appendChild(project);
-  const completed = document.createElement('p');
-  completed.textContent = `Completed: ${task.completed}`;
+
+  if (task.project) {
+    const project = document.createElement('p');
+    project.textContent = `Project: ${task.project}`;
+    infoContainer.appendChild(project);
+  }
+
   extraInfo.appendChild(infoContainer);
   taskDiv.appendChild(extraInfo);
 
