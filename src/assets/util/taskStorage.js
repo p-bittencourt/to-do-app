@@ -4,8 +4,7 @@ function storeTask(task) {
   // store the new task in the tasks array in localStorage
   const tasks = retrieveTasks();
   tasks.push(task);
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-  updateTaskEvent();
+  setItemToLocalStorage(tasks);
 }
 
 function retrieveTasks() {
@@ -17,8 +16,7 @@ function deleteTask(task) {
   // delete the task from the tasks array in localStorage
   const tasks = retrieveTasks();
   const newTasks = tasks.filter((t) => t.id != task.id);
-  localStorage.setItem('tasks', JSON.stringify(newTasks));
-  updateTaskEvent();
+  setItemToLocalStorage(newTasks);
 }
 
 function editTask(task) {
@@ -53,7 +51,6 @@ function editTask(task) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     handleNewTaskInfo(form, task);
-    updateTaskEvent();
   });
 }
 
@@ -75,7 +72,12 @@ function updateTaskInStorage(task) {
   const tasks = retrieveTasks();
   const index = tasks.findIndex((t) => t.id === task.id);
   tasks[index] = task;
+  setItemToLocalStorage(tasks);
+}
+
+function setItemToLocalStorage(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
+  updateTaskEvent();
 }
 
 function updateTaskEvent() {
