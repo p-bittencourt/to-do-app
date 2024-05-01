@@ -30,16 +30,21 @@ const taskCard = (task) => {
   const mainInfo = document.createElement('div');
   mainInfo.classList.add('main-info');
 
+  // Title and description
   const title = document.createElement('h4');
   title.textContent = task.title;
   mainInfo.appendChild(title);
   const description = document.createElement('p');
   description.textContent = task.description;
   mainInfo.appendChild(description);
-  const checkDone = document.createElement('button');
-  checkDone.classList.add('btn', 'btn-light', 'mx-1');
-  checkDone.textContent = 'Done';
-  checkDone.addEventListener('click', () => {
+
+  // Check done button
+  const checkDone = document.createElement('input');
+  checkDone.classList.add('form-check-input', 'mx-1', 'bg-dark', 'p-2');
+  checkDone.type = 'checkbox';
+  // checkDone.textContent = 'Done';
+  checkDone.addEventListener('click', (event) => {
+    event.stopPropagation();
     console.log('done');
   });
   mainInfo.appendChild(checkDone);
@@ -51,10 +56,10 @@ const taskCard = (task) => {
   // #region
   const extraInfo = document.createElement('div');
   extraInfo.classList.add('extra-info');
-
   const infoContainer = document.createElement('div');
   infoContainer.classList.add('info-container');
 
+  // Container info
   const dueDate = document.createElement('p');
   dueDate.textContent = `Due date: ${task.dueDate}`;
   infoContainer.appendChild(dueDate);
@@ -69,9 +74,11 @@ const taskCard = (task) => {
   extraInfo.appendChild(infoContainer);
   taskDiv.appendChild(extraInfo);
 
+  // Buttons div
   const buttonsDiv = document.createElement('div');
   buttonsDiv.classList.add('edit-buttons-div');
 
+  // Delete button
   const deleteButton = document.createElement('button');
   deleteButton.classList.add('btn', 'btn-danger', 'mx-1');
   deleteButton.textContent = 'Delete';
@@ -85,6 +92,7 @@ const taskCard = (task) => {
 
   buttonsDiv.appendChild(deleteButton);
 
+  // Edit button
   const editButton = document.createElement('button');
   editButton.classList.add('btn', 'btn-light', 'mx-1');
   editButton.textContent = 'Edit';
@@ -97,6 +105,7 @@ const taskCard = (task) => {
   extraInfo.appendChild(buttonsDiv);
   // #endregion
 
+  // Add event listener to toggle extra info visibility
   taskDiv.addEventListener('click', toggleExtraInfoVisibility);
 
   return taskDiv;
