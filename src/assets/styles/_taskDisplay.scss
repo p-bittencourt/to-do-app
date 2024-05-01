@@ -82,6 +82,10 @@
       width: 100%;
       flex-direction: column;
 
+      .check-done-div {
+        display: flex;
+        justify-content: flex-end;
+      }
       .info-container {
         width: 100%;
       }

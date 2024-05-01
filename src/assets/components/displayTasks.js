@@ -40,6 +40,8 @@ const taskCard = (task) => {
   mainInfo.appendChild(description);
 
   // Check done button
+  const checkDoneDiv = document.createElement('div');
+  checkDoneDiv.classList.add('check-done-div');
   const checkDone = document.createElement('input');
   checkDone.classList.add('form-check-input', 'mx-1', 'bg-dark', 'rounded');
   checkDone.type = 'checkbox';
@@ -48,7 +50,8 @@ const taskCard = (task) => {
     event.stopPropagation();
     console.log('done');
   });
-  mainInfo.appendChild(checkDone);
+  checkDoneDiv.appendChild(checkDone);
+  mainInfo.appendChild(checkDoneDiv);
 
   taskDiv.appendChild(mainInfo);
   // #endregion
