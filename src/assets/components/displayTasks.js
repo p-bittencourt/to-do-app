@@ -97,5 +97,12 @@ const taskCard = (task) => {
   extraInfo.appendChild(buttonsDiv);
   // #endregion
 
+  taskDiv.addEventListener('click', toggleExtraInfoVisibility);
+
   return taskDiv;
+};
+
+const toggleExtraInfoVisibility = (event) => {
+  const extraInfo = event.currentTarget.querySelector('.extra-info');
+  extraInfo.classList.toggle('show');
 };

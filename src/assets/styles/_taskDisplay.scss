@@ -15,6 +15,17 @@
   }
 }
 
+.show {
+  display: flex;
+  justify-content: space-around;
+}
+
+.task:hover .extra-info,
+.task .extra-info.show {
+  display: flex;
+  justify-content: space-around;
+}
+
 .task {
   display: flex;
   flex-direction: column;
@@ -29,17 +40,28 @@
   .main-info {
     padding: 0.5rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+
+    p {
+      padding-top: 0.175rem;
+    }
   }
 
   .extra-info {
     padding: 0.3rem;
-    display: flex;
-    justify-content: space-around;
+    display: none;
+    // display: flex;
+    // justify-content: space-around;
+
+    .info-container {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 0.75rem;
+      width: 75%;
+    }
 
     .edit-buttons-div {
       display: flex;
-      flex-direction: column;
       justify-content: space-around;
     }
   }
@@ -54,6 +76,11 @@
     .extra-info {
       padding: 0.2rem; // Reduz o padding das seções de informações para 0.2rem em telas pequenas
       width: 100%;
+      flex-direction: column;
+
+      .info-container {
+        width: 100%;
+      }
     }
   }
 
