@@ -40,7 +40,7 @@ const taskCard = (task) => {
 
   // Check done button
   const checkDone = document.createElement('input');
-  checkDone.classList.add('form-check-input', 'mx-1', 'bg-dark', 'p-2');
+  checkDone.classList.add('form-check-input', 'mx-1', 'bg-dark', 'rounded');
   checkDone.type = 'checkbox';
   // checkDone.textContent = 'Done';
   checkDone.addEventListener('click', (event) => {

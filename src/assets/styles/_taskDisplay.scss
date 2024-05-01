@@ -26,6 +26,10 @@
   justify-content: space-around;
 }
 
+.edit-mode {
+  flex-direction: column;
+}
+
 .task {
   display: flex;
   flex-direction: column;
