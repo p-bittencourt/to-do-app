@@ -76,7 +76,7 @@
   }
 
   @include media-breakpoint-down(md) {
-    width: 90%; // Aumenta a largura do card para 90% em telas pequenas
+    width: 100%; // Aumenta a largura do card para 90% em telas pequenas
     padding: 0.4rem; // Reduz o padding do card para 0.4rem em telas pequenas
     margin: 0.4rem; // Reduz a margem do card para 0.4rem em telas pequenas
     flex-direction: column;
