@@ -1,12 +1,13 @@
 import Task from '../util/Task';
 import { storeTask } from '../util/taskStorage';
-import createTaskForm from '../util/createTaskForm';
+//import createTaskForm from '../util/createTaskForm';
+import createForm from '../util/createForm';
 
 export default function createTask() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.id = 'createTaskModal';
-  modal.innerHTML = taskModal(createTaskForm());
+  modal.innerHTML = taskModal(createForm());
 
   const submitButton = modal.querySelector('#submitButton');
   submitButton.addEventListener('click', submitForm);

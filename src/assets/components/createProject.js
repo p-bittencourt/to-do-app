@@ -1,12 +1,13 @@
 import Project from '../util/Project.js';
-import createProjectForm from '../util/createProjectForm.js';
 import { storeProject } from '../util/projectStorage.js';
+// import createProjectForm from '../util/createProjectForm.js';
+import createForm from '../util/createForm.js';
 
 export default function createProject() {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.id = 'createProjectModal';
-  modal.innerHTML = projectModal(createProjectForm());
+  modal.innerHTML = projectModal(createForm());
 
   const submitButton = modal.querySelector('#submitButton');
   submitButton.addEventListener('click', submitForm);

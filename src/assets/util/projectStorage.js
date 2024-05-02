@@ -1,4 +1,6 @@
-import createProjectForm from './createProjectForm';
+// import createProjectForm from './createProjectForm';
+
+import createForm from './createForm';
 
 function storeProject(project) {
   const projects = retrieveProjects();
@@ -17,7 +19,7 @@ function deleteProject(project) {
 }
 
 function editProject(project) {
-  const form = createProjectForm(project);
+  const form = createForm(project);
   const confirmEdit = document.createElement('button');
   confirmEdit.type = 'submit';
   confirmEdit.textContent = 'Confirm';
@@ -52,10 +54,10 @@ function editProject(project) {
 }
 
 function handleNewProjectInfo(form, project) {
-  const newTitle = form.querySelector('#projectTitle').value;
-  const newDescription = form.querySelector('#projectDescription').value;
-  const newDueDate = form.querySelector('#projectDueDate').value;
-  const newPriority = form.querySelector('#projectPriority').value;
+  const newTitle = form.querySelector('#configTitle').value;
+  const newDescription = form.querySelector('#configDescription').value;
+  const newDueDate = form.querySelector('#configDueDate').value;
+  const newPriority = form.querySelector('#configPriority').value;
 
   project.title = newTitle;
   project.description = newDescription;

@@ -1,4 +1,5 @@
-import createTaskForm from './createTaskForm';
+// import createTaskForm from './createTaskForm';
+import createForm from './createForm';
 
 function storeTask(task) {
   // store the new task in the tasks array in localStorage
@@ -20,7 +21,7 @@ function deleteTask(task) {
 }
 
 function editTask(task) {
-  const form = createTaskForm(task);
+  const form = createForm(task);
   const confirmEdit = document.createElement('button');
   confirmEdit.type = 'submit';
   confirmEdit.textContent = 'Confirm';
@@ -55,10 +56,10 @@ function editTask(task) {
 }
 
 function handleNewTaskInfo(form, task) {
-  const newTitle = form.querySelector('#taskTitle').value;
-  const newDescription = form.querySelector('#taskDescription').value;
-  const newDueDate = form.querySelector('#taskDueDate').value;
-  const newPriority = form.querySelector('#taskPriority').value;
+  const newTitle = form.querySelector('#configTitle').value;
+  const newDescription = form.querySelector('#configDescription').value;
+  const newDueDate = form.querySelector('#configDueDate').value;
+  const newPriority = form.querySelector('#configPriority').value;
 
   task.title = newTitle;
   task.description = newDescription;
