@@ -76,11 +76,26 @@ const taskCard = (task) => {
       formattedDate = format(date, 'dd/MM/yyyy');
     }
   }
-  dueDate.textContent = `Due: ${formattedDate}`;
+  dueDate.textContent = `${formattedDate}`;
   infoContainer.appendChild(dueDate);
 
   const priority = document.createElement('p');
-  priority.textContent = `Priority: ${task.priority}`;
+  const priorityText = `${task.priority
+    .charAt(0)
+    .toUpperCase()}${task.priority.slice(1)} priority`;
+  priority.textContent = priorityText;
+  priority.classList.add('fw-bold');
+  switch (task.priority) {
+    case 'high':
+      priority.classList.add('text-danger');
+      break;
+    case 'medium':
+      priority.classList.add('text-secondary');
+      break;
+    case 'low':
+      priority.classList.add('text-success');
+      break;
+  }
   infoContainer.appendChild(priority);
 
   if (task.project) {
