@@ -8,6 +8,14 @@ function retrieveProjects() {
   return JSON.parse(localStorage.getItem('projects')) || [];
 }
 
+function deleteProject(project) {
+  console.log(project);
+}
+
+function editProject(project) {
+  console.log(project);
+}
+
 function setProjectToLocalStorage(projects) {
   localStorage.setItem('projects', JSON.stringify(projects));
   updateProjectEvent();
@@ -18,4 +26,4 @@ function updateProjectEvent() {
   document.body.dispatchEvent(event);
 }
 
-export { storeProject, retrieveProjects };
+export { storeProject, retrieveProjects, deleteProject, editProject };
