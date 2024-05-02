@@ -32,16 +32,16 @@ const taskCard = (task) => {
   mainInfo.classList.add('main-info');
 
   // Title and description
-  const titleDescritionDiv = document.createElement('div');
-  titleDescritionDiv.classList.add('title-description');
+  const titleDescriptionDiv = document.createElement('div');
+  titleDescriptionDiv.classList.add('title-description');
   const title = document.createElement('h4');
   title.textContent = task.title;
   mainInfo.appendChild(title);
   const description = document.createElement('p');
   description.textContent = task.description;
-  titleDescritionDiv.appendChild(title);
-  titleDescritionDiv.appendChild(description);
-  mainInfo.appendChild(titleDescritionDiv);
+  titleDescriptionDiv.appendChild(title);
+  titleDescriptionDiv.appendChild(description);
+  mainInfo.appendChild(titleDescriptionDiv);
 
   // Check done button
   const checkDoneDiv = document.createElement('div');

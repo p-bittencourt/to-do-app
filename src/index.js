@@ -8,6 +8,9 @@ import { Modal } from 'bootstrap';
 import '../dist/assets/styles/style.css';
 
 let content = document.getElementById('main-content');
+
+// nav links
+//#region
 const projectsLink = document.getElementById('projects-link');
 const tasksLink = document.getElementById('tasks-link');
 projectsLink.addEventListener('click', (event) => {
@@ -19,6 +22,7 @@ tasksLink.addEventListener('click', (event) => {
   event.preventDefault();
   updateTaskDisplay();
 });
+//#endregion
 
 // task modal and project modal
 //#region
@@ -36,14 +40,14 @@ const projectModalInstance = new Modal(projectModal);
 let addNewTaskDiv = document.createElement('div');
 addNewTaskDiv.classList.add('add-new-task');
 let addNewTaskButton = document.createElement('button');
-addNewTaskButton.classList.add('btn', 'btn-primary', 'my-2');
+addNewTaskButton.classList.add('btn', 'btn-primary');
 addNewTaskButton.textContent = 'Add New Task';
 addNewTaskDiv.appendChild(addNewTaskButton);
 addNewTaskButton.addEventListener('click', () => {
   taskModalInstance.show();
 });
 let startNewProjectButton = document.createElement('button');
-startNewProjectButton.classList.add('btn', 'btn-secondary', 'my-2');
+startNewProjectButton.classList.add('btn', 'btn-secondary');
 startNewProjectButton.textContent = 'Start New Project';
 startNewProjectButton.addEventListener('click', () => {
   projectModalInstance.show();

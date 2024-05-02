@@ -1,6 +1,7 @@
 @use './custom' as *;
 
-.task-display {
+.task-display,
+.project-display {
   display: flex;
   flex-direction: column;
   align-items: center;
