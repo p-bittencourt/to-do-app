@@ -7,9 +7,18 @@ import { retrieveProjects } from './assets/util/projectStorage.js';
 import { Modal } from 'bootstrap';
 import '../dist/assets/styles/style.css';
 
-let tasks = retrieveTasks();
-
 let content = document.getElementById('main-content');
+const projectsLink = document.getElementById('projects-link');
+const tasksLink = document.getElementById('tasks-link');
+projectsLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  updateProjectDisplay();
+});
+
+tasksLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  updateTaskDisplay();
+});
 
 // task modal and project modal
 //#region
@@ -27,14 +36,14 @@ const projectModalInstance = new Modal(projectModal);
 let addNewTaskDiv = document.createElement('div');
 addNewTaskDiv.classList.add('add-new-task');
 let addNewTaskButton = document.createElement('button');
-addNewTaskButton.classList.add('btn', 'btn-primary');
+addNewTaskButton.classList.add('btn', 'btn-primary', 'my-2');
 addNewTaskButton.textContent = 'Add New Task';
 addNewTaskDiv.appendChild(addNewTaskButton);
 addNewTaskButton.addEventListener('click', () => {
   taskModalInstance.show();
 });
 let startNewProjectButton = document.createElement('button');
-startNewProjectButton.classList.add('btn', 'btn-secondary');
+startNewProjectButton.classList.add('btn', 'btn-secondary', 'my-2');
 startNewProjectButton.textContent = 'Start New Project';
 startNewProjectButton.addEventListener('click', () => {
   projectModalInstance.show();
@@ -49,7 +58,7 @@ document.body.addEventListener('projectUpdated', updateProjectDisplay);
 function updateTaskDisplay() {
   content.innerHTML = '';
   taskModalInstance.hide();
-  tasks = retrieveTasks();
+  const tasks = retrieveTasks();
   content.appendChild(addNewTaskDiv);
   content.appendChild(displayTasks(tasks));
 }

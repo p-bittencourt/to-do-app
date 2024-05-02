@@ -133,3 +133,11 @@
     }
   }
 }
+
+.add-new-task {
+  display: flex;
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+  }
+}

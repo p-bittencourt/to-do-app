@@ -12,7 +12,7 @@ export default function displayProjects(projects) {
   } else {
     projects.forEach((project) => {
       const projectP = document.createElement('p');
-      projectP.textContent = project.name;
+      projectP.textContent = project.title;
       projectDisplay.appendChild(projectP);
     });
   }
