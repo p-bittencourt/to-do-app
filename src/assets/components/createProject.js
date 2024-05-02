@@ -1,5 +1,6 @@
 import Project from '../util/Project.js';
 import createProjectForm from '../util/createProjectForm.js';
+import { storeProject } from '../util/projectStorage.js';
 
 export default function createProject() {
   const modal = document.createElement('div');
@@ -55,5 +56,5 @@ const submitForm = (event) => {
     projectPriority
   );
 
-  console.log(newProject);
+  storeProject(newProject);
 };
