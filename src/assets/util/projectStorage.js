@@ -1,7 +1,6 @@
 function storeProject(project) {
   const projects = retrieveProjects();
   projects.push(project);
-  console.log(projects);
   setProjectToLocalStorage(projects);
 }
 
@@ -11,6 +10,7 @@ function retrieveProjects() {
 
 function setProjectToLocalStorage(projects) {
   localStorage.setItem('projects', JSON.stringify(projects));
+  updateProjectEvent();
 }
 
 function updateProjectEvent() {
@@ -18,4 +18,4 @@ function updateProjectEvent() {
   document.body.dispatchEvent(event);
 }
 
-export { storeProject };
+export { storeProject, retrieveProjects };

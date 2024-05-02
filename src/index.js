@@ -1,7 +1,9 @@
 import displayTasks from './assets/components/displayTasks.js';
+import displayProjects from './assets/components/displayProjects.js';
 import createTask from './assets/components/createTask.js';
 import createProject from './assets/components/createProject.js';
 import { retrieveTasks } from './assets/util/taskStorage.js';
+import { retrieveProjects } from './assets/util/projectStorage.js';
 import { Modal } from 'bootstrap';
 import '../dist/assets/styles/style.css';
 
@@ -9,16 +11,19 @@ let tasks = retrieveTasks();
 
 let content = document.getElementById('main-content');
 
-// task modal
+// task modal and project modal
+//#region
 const taskModal = createTask();
 document.body.appendChild(taskModal);
 const taskModalInstance = new Modal(taskModal);
 
-// project modal
 const projectModal = createProject();
 document.body.appendChild(projectModal);
 const projectModalInstance = new Modal(projectModal);
+//#endregion
 
+// add task and project div
+//#region
 let addNewTaskDiv = document.createElement('div');
 addNewTaskDiv.classList.add('add-new-task');
 let addNewTaskButton = document.createElement('button');
@@ -36,11 +41,10 @@ startNewProjectButton.addEventListener('click', () => {
 });
 addNewTaskDiv.appendChild(addNewTaskButton);
 addNewTaskDiv.appendChild(startNewProjectButton);
-
-content.appendChild(addNewTaskDiv);
-content.appendChild(displayTasks(tasks));
+//#endregion
 
 document.body.addEventListener('taskUpdated', updateTaskDisplay);
+document.body.addEventListener('projectUpdated', updateProjectDisplay);
 
 function updateTaskDisplay() {
   content.innerHTML = '';
@@ -48,6 +52,14 @@ function updateTaskDisplay() {
   tasks = retrieveTasks();
   content.appendChild(addNewTaskDiv);
   content.appendChild(displayTasks(tasks));
+}
+
+function updateProjectDisplay() {
+  content.innerHTML = '';
+  projectModalInstance.hide();
+  const projects = retrieveProjects();
+  content.appendChild(addNewTaskDiv);
+  content.appendChild(displayProjects(projects));
 }
 
 updateTaskDisplay();
