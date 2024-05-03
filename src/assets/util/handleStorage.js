@@ -4,6 +4,10 @@ function fetchItems(key) {
   return JSON.parse(localStorage.getItem(key)) || [];
 }
 
+function fetchSingleItem(id, key) {
+  return fetchItems(key).find((item) => item.id === id);
+}
+
 function storeItem(item, key) {
   const items = fetchItems(key);
   items.push(item);
@@ -87,4 +91,4 @@ function setItemToLocalStorage(item, key) {
   updateEvent(key);
 }
 
-export { fetchItems, storeItem, deleteItem, editItem };
+export { fetchItems, storeItem, deleteItem, editItem, fetchSingleItem };

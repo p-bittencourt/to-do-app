@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { deleteItem, editItem } from './handleStorage';
+import { deleteItem, editItem, fetchSingleItem } from './handleStorage';
 
 export default function displayCard(input, key) {
   const cardDiv = document.createElement('div');
@@ -78,9 +78,12 @@ export default function displayCard(input, key) {
   infoContainer.appendChild(priority);
 
   if (input.project) {
-    const input = document.createElement('p');
-    input.textContent = `Project: ${input.project}`;
-    infoContainer.appendChild(input);
+    const project = fetchSingleItem(input.project, 'projects');
+    if (project) {
+      const projectElement = document.createElement('p');
+      projectElement.textContent = `Project: ${project.title}`;
+      infoContainer.appendChild(projectElement);
+    }
   }
 
   extraInfo.appendChild(infoContainer);
