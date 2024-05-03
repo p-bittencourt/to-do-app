@@ -1,7 +1,6 @@
 import displayTasks from './assets/components/displayTasks.js';
 import displayProjects from './assets/components/displayProjects.js';
-import createTask from './assets/components/createTask.js';
-import createProject from './assets/components/createProject.js';
+import createItem from './assets/components/createItem.js';
 import { fetchItems } from './assets/util/handleStorage.js';
 import { Modal } from 'bootstrap';
 import '../dist/assets/styles/style.css';
@@ -25,11 +24,11 @@ tasksLink.addEventListener('click', (event) => {
 
 // task modal and project modal
 //#region
-const taskModal = createTask();
+const taskModal = createItem('tasks');
 document.body.appendChild(taskModal);
 const taskModalInstance = new Modal(taskModal);
 
-const projectModal = createProject();
+const projectModal = createItem('projects');
 document.body.appendChild(projectModal);
 const projectModalInstance = new Modal(projectModal);
 //#endregion
