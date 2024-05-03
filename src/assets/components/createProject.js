@@ -39,11 +39,11 @@ const projectModal = (formElement) => {
 
 const submitForm = (event) => {
   event.preventDefault();
-  const projectTitle = document.getElementById('projectTitle').value;
-  const projectDescription =
-    document.getElementById('projectDescription').value;
-  const projectDueDate = document.getElementById('projectDueDate').value;
-  const projectPriority = document.getElementById('projectPriority').value;
+  const formData = new FormData(document.getElementById('projectForm'));
+  const projectTitle = formData.get('configTitle');
+  const projectDescription = formData.get('configDescription');
+  const projectDueDate = formData.get('configDueDate');
+  const projectPriority = formData.get('configPriority');
 
   if (!projectTitle.trim()) {
     alert('Project title is required');

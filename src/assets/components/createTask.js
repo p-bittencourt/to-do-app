@@ -38,10 +38,10 @@ const taskModal = (formElement) => {
 
 const submitForm = (event) => {
   event.preventDefault();
-  const taskTitle = document.getElementById('taskTitle').value;
-  const taskDescription = document.getElementById('taskDescription').value;
-  const taskDueDate = document.getElementById('taskDueDate').value;
-  const taskPriority = document.getElementById('taskPriority').value;
+  const taskTitle = document.getElementById('configTitle').value;
+  const taskDescription = document.getElementById('configDescription').value;
+  const taskDueDate = document.getElementById('configDueDate').value;
+  const taskPriority = document.getElementById('configPriority').value;
 
   if (!taskTitle.trim()) {
     alert('Task title is required');
