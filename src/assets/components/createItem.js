@@ -1,13 +1,17 @@
 import Project from '../util/Project';
 import Task from '../util/Task';
-import { storeItem } from '../util/handleStorage';
+import { storeItem, fetchItems } from '../util/handleStorage';
 import createForm from '../util/createForm';
 
-export default function createItem(type) {
+function createItem(type) {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.id = `create${type}Modal`;
-  modal.innerHTML = itemModal(createForm(type), type);
+  const form = createForm();
+  if (type == 'tasks') {
+    addProjectSelectToForm(form);
+  }
+  modal.innerHTML = itemModal(form, type);
 
   const submitButton = modal.querySelector('#submitButton');
   submitButton.addEventListener('click', (event) => {
@@ -70,3 +74,26 @@ const submitForm = (event, type) => {
 
   storeItem(newItem, type);
 };
+
+function createProjectSelect(form) {
+  const projects = fetchItems('projects');
+  const selectDiv = document.createElement('div');
+  selectDiv.classList.add('mb-3');
+  selectDiv.innerHTML = `
+        <label for="configProject" class="form-label">Project</label>
+        <select class="form-select" id="configProject" name="configProject">
+            <option value="">None</option>
+            ${projects.map((project) => {
+              return `<option value="${project.id}">${project.title}</option>`;
+            })}
+        </select>
+    `;
+  return selectDiv;
+}
+
+const addProjectSelectToForm = (form) => {
+  const projectsSelect = createProjectSelect(form);
+  form.querySelector('.extra-info').appendChild(projectsSelect);
+};
+
+export { createItem, createProjectSelect };

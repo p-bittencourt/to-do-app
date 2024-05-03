@@ -1,7 +1,10 @@
 // import displayTasks from './assets/components/displayTasks.js';
 // import displayProjects from './assets/components/displayProjects.js';
 import displayItems from './assets/components/displayItems.js';
-import createItem from './assets/components/createItem.js';
+import {
+  createItem,
+  createProjectSelect,
+} from './assets/components/createItem.js';
 import { fetchItems } from './assets/util/handleStorage.js';
 import { Modal } from 'bootstrap';
 import '../dist/assets/styles/style.css';
@@ -72,6 +75,19 @@ function updateProjectDisplay() {
   const projects = fetchItems('projects');
   content.appendChild(addNewTaskDiv);
   content.appendChild(displayItems(projects, 'projects'));
+
+  const form = document.querySelector('#tasksForm');
+  if (form) {
+    updateProjectSelect(form);
+  }
+}
+
+function updateProjectSelect(form) {
+  const oldProjectSelect = form.querySelector('#configProject').parentElement;
+  const newProjectSelect = createProjectSelect(form);
+  form
+    .querySelector('.extra-info')
+    .replaceChild(newProjectSelect, oldProjectSelect);
 }
 
 updateTaskDisplay();
