@@ -31,7 +31,7 @@ function editItem(item, key) {
   cancelEdit.textContent = 'Cancel';
   cancelEdit.classList.add('btn', 'btn-danger', 'edit-button');
   cancelEdit.addEventListener('click', () => {
-    updateItemEvent();
+    updateEvent();
   });
 
   const buttonsDiv = document.createElement('div');
