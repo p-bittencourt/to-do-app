@@ -168,16 +168,22 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    padding-right: 0.5rem;
   }
 
   @include media-breakpoint-down(md) {
     flex-direction: column;
-    width: 90%;
+    width: 95%;
 
     .task-title,
     .task-description,
     .check-done-div {
       width: 100%;
+    }
+
+    .check-done-div,
+    .task-description {
+      padding-right: 0.15rem;
     }
   }
 }

@@ -92,4 +92,4 @@ function updateProjectSelect(form) {
 }
 //#endregion
 
-updateProjectDisplay();
+updateTaskDisplay();
