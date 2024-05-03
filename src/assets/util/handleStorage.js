@@ -89,6 +89,11 @@ function updateItemInStorage(item, key) {
   setItemToLocalStorage(items, key);
 }
 
+function setItemToLocalStorage(item, key) {
+  localStorage.setItem(key, JSON.stringify(item));
+  updateEvent(key);
+}
+
 function updateEvent(key) {
   let event;
   if (key == 'projects') {
@@ -97,11 +102,6 @@ function updateEvent(key) {
     event = new Event('taskUpdated');
   }
   document.body.dispatchEvent(event);
-}
-
-function setItemToLocalStorage(item, key) {
-  localStorage.setItem(key, JSON.stringify(item));
-  updateEvent(key);
 }
 
 export {

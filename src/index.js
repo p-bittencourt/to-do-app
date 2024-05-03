@@ -1,5 +1,3 @@
-// import displayTasks from './assets/components/displayTasks.js';
-// import displayProjects from './assets/components/displayProjects.js';
 import displayItems from './assets/components/displayItems.js';
 import {
   createItem,
@@ -58,9 +56,12 @@ addNewTaskDiv.appendChild(addNewTaskButton);
 addNewTaskDiv.appendChild(startNewProjectButton);
 //#endregion
 
+// event listeners
 document.body.addEventListener('taskUpdated', updateTaskDisplay);
 document.body.addEventListener('projectUpdated', updateProjectDisplay);
 
+// functions to update display
+//#region
 function updateTaskDisplay() {
   content.innerHTML = '';
   taskModalInstance.hide();
@@ -89,5 +90,6 @@ function updateProjectSelect(form) {
     .querySelector('.extra-info')
     .replaceChild(newProjectSelect, oldProjectSelect);
 }
+//#endregion
 
-updateTaskDisplay();
+updateProjectDisplay();

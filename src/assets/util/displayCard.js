@@ -4,7 +4,6 @@ import { deleteItem, editItem, fetchSingleItem } from './handleStorage';
 export default function displayCard(input, key) {
   const cardDiv = document.createElement('div');
   cardDiv.classList.add('main-card');
-  // cardDiv.classList.add('card');
 
   // Set mainInfo
   // #region
@@ -38,6 +37,16 @@ export default function displayCard(input, key) {
   mainInfo.appendChild(checkDoneDiv);
 
   cardDiv.appendChild(mainInfo);
+  // #endregion
+
+  // Add project tasks
+  // #region
+  if (key === 'projects') {
+    const projectTasks = displayProjectTasks(input);
+    if (projectTasks) {
+      cardDiv.appendChild(projectTasks);
+    }
+  }
   // #endregion
 
   // Set extraInfo
@@ -92,7 +101,7 @@ export default function displayCard(input, key) {
   // #endregion
 
   // Buttons div
-  //#region
+  // #region
   const buttonsDiv = document.createElement('div');
   buttonsDiv.classList.add('edit-buttons-div');
 
@@ -115,8 +124,6 @@ export default function displayCard(input, key) {
     }
   });
 
-  buttonsDiv.appendChild(deleteButton);
-
   // Edit button
   const editButton = document.createElement('button');
   editButton.classList.add('btn', 'm-1');
@@ -132,15 +139,9 @@ export default function displayCard(input, key) {
   });
 
   buttonsDiv.appendChild(editButton);
+  buttonsDiv.appendChild(deleteButton);
   extraInfo.appendChild(buttonsDiv);
   //#endregion
-
-  if (key === 'projects') {
-    const projectTasks = displayProjectTasks(input);
-    if (projectTasks) {
-      cardDiv.appendChild(projectTasks);
-    }
-  }
 
   // Add event listener to toggle extra info visibility
   cardDiv.addEventListener('click', toggleExtraInfoVisibility);
@@ -151,9 +152,22 @@ const projectTaskCard = (task) => {
   const taskCard = document.createElement('div');
   taskCard.classList.add('task-card');
   taskCard.innerHTML = `
-    <h5>${task.title}</h5>
-    <p>${task.description}</p>
+    <div class="task-title">
+      <h5>${task.title}</h5>
+    </div>
+    <div class="task-description">
+      <p class>${task.description}</p>
+    </div>
+    <div class="check-done-div">
+      <input class="form-check-input mx-1 bg-dark rounded" type="checkbox" id="checkDone">
+    </div>
   `;
+  const checkDone = taskCard.querySelector('#checkDone');
+  checkDone.addEventListener('click', (event) => {
+    event.stopPropagation();
+    console.log(task);
+  });
+
   return taskCard;
 };
 

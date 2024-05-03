@@ -141,3 +141,43 @@
     flex-direction: column;
   }
 }
+
+.task-card {
+  margin: 1rem;
+  padding: 0.2rem;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+
+  .task-title {
+    align-items: flex-start;
+    width: 40%;
+    height: 100%;
+  }
+
+  .task-description {
+    height: 100%;
+    text-align: end;
+    width: 40%;
+  }
+
+  .check-done-div {
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+  @include media-breakpoint-down(md) {
+    flex-direction: column;
+    width: 90%;
+
+    .task-title,
+    .task-description,
+    .check-done-div {
+      width: 100%;
+    }
+  }
+}
