@@ -2,8 +2,6 @@ import displayTasks from './assets/components/displayTasks.js';
 import displayProjects from './assets/components/displayProjects.js';
 import createTask from './assets/components/createTask.js';
 import createProject from './assets/components/createProject.js';
-// import { retrieveTasks } from './assets/util/taskStorage.js';
-// import { retrieveProjects } from './assets/util/projectStorage.js';
 import { fetchItems } from './assets/util/handleStorage.js';
 import { Modal } from 'bootstrap';
 import '../dist/assets/styles/style.css';

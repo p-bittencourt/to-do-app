@@ -1,5 +1,4 @@
 import displayCard from '../util/displayCard';
-// import { deleteTask, editTask } from '../util/taskStorage';
 
 export default function displayTasks(tasks) {
   const taskDisplay = document.createElement('div');

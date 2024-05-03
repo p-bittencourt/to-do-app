@@ -39,7 +39,7 @@ export default function displayCard(input, key) {
   cardDiv.appendChild(mainInfo);
   // #endregion
 
-  // Set extraInfo and buttons
+  // Set extraInfo
   // #region
   const extraInfo = document.createElement('div');
   extraInfo.classList.add('extra-info');
@@ -105,9 +105,7 @@ export default function displayCard(input, key) {
   `;
   deleteButton.addEventListener('click', () => {
     // Call a function to handle the delete action
-    const confirmDelete = confirm(
-      'Are you sure you want to delete this project?'
-    );
+    const confirmDelete = confirm('Are you sure you want to delete?');
     if (confirmDelete) {
       deleteItem(input, key);
     }

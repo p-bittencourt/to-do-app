@@ -1,7 +1,5 @@
 import Task from '../util/Task';
-//import { storeTask } from '../util/taskStorage';
 import { storeItem } from '../util/handleStorage';
-//import createTaskForm from '../util/createTaskForm';
 import createForm from '../util/createForm';
 
 export default function createTask() {

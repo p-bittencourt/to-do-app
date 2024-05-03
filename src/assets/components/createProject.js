@@ -1,7 +1,5 @@
 import Project from '../util/Project.js';
-// import { storeProject } from '../util/projectStorage.js';
 import { storeItem } from '../util/handleStorage.js';
-// import createProjectForm from '../util/createProjectForm.js';
 import createForm from '../util/createForm.js';
 
 export default function createProject() {

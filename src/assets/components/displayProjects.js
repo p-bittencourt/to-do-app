@@ -1,6 +1,4 @@
 import displayCard from '../util/displayCard';
-// import { deleteProject, editProject } from '../util/projectStorage';
-// import { deleteItem, editItem } from '../util/handleStorage';
 
 export default function displayProjects(projects) {
   const projectDisplay = document.createElement('div');
