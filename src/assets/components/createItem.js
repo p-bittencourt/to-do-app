@@ -7,7 +7,7 @@ export default function createItem(type) {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.id = `create${type}Modal`;
-  modal.innerHTML = itemModal(createForm(), type);
+  modal.innerHTML = itemModal(createForm(type), type);
 
   const submitButton = modal.querySelector('#submitButton');
   submitButton.addEventListener('click', (event) => {

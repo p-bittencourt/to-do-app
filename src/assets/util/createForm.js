@@ -1,5 +1,12 @@
-export default function createForm(config = {}) {
+import { fetchItems } from './handleStorage';
+
+export default function createForm(type, config = {}) {
+  console.log(type);
   const form = document.createElement('form');
+  let projectSelect = '';
+  if (type == 'tasks') {
+    projectSelect = projectsSelect();
+  }
   form.innerHTML = `
         <div class="main-info">
           <div class="mb-3">
@@ -37,9 +44,26 @@ export default function createForm(config = {}) {
                       config.priority === 'high' ? 'selected' : ''
                     }>High</option>
                 </select>
-            </div>
+                </div>
+                ${projectSelect}
           </div>              
     `;
 
   return form;
 }
+
+const projectsSelect = () => {
+  const projects = fetchItems('projects');
+  const selectDiv = document.createElement('div');
+  selectDiv.classList.add('mb-3');
+  selectDiv.innerHTML = `
+        <label for="configProject" class="form-label">Project</label>
+        <select class="form-select" id="configProject" name="configProject">
+            <option value="">None</option>
+            ${projects.map((project) => {
+              return `<option value="${project.id}">${project.title}</option>`;
+            })}
+        </select>
+    `;
+  return selectDiv.outerHTML;
+};
