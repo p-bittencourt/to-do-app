@@ -17,7 +17,20 @@ function storeItem(item, key) {
 function deleteItem(item, key) {
   const items = fetchItems(key);
   const newItems = items.filter((i) => i.id !== item.id);
+  if (key == 'tasks') {
+    deleteTaskFromProject(item);
+  }
   setItemToLocalStorage(newItems, key);
+}
+
+function deleteTaskFromProject(task) {
+  const projects = fetchItems('projects');
+  const project = projects.find((p) => p.projectTasks.includes(task.id));
+  if (project) {
+    const taskIndex = project.projectTasks.indexOf(task.id);
+    project.projectTasks.splice(taskIndex, 1);
+    updateItemInStorage(project, 'projects');
+  }
 }
 
 function editItem(item, key) {
