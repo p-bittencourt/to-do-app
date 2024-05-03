@@ -1,5 +1,6 @@
 import Project from '../util/Project.js';
-import { storeProject } from '../util/projectStorage.js';
+// import { storeProject } from '../util/projectStorage.js';
+import { storeItem } from '../util/handleStorage.js';
 // import createProjectForm from '../util/createProjectForm.js';
 import createForm from '../util/createForm.js';
 
@@ -57,5 +58,9 @@ const submitForm = (event) => {
     projectPriority
   );
 
-  storeProject(newProject);
+  // storeProject(newProject);
+  storeItem(newProject, 'projects');
+
+  const form = document.getElementById('projectForm');
+  form.reset();
 };

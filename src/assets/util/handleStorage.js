@@ -84,7 +84,7 @@ function updateEvent(key) {
 
 function setItemToLocalStorage(item, key) {
   localStorage.setItem(key, JSON.stringify(item));
-  updateEvent();
+  updateEvent(key);
 }
 
 export { fetchItems, storeItem, deleteItem, editItem };

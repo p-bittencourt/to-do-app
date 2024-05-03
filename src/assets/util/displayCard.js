@@ -1,6 +1,7 @@
 import { format } from 'date-fns';
+import { deleteItem, editItem } from './handleStorage';
 
-export default function displayCard(input, handleDelete, handleEdit) {
+export default function displayCard(input, key) {
   const cardDiv = document.createElement('div');
   // cardDiv.classList.add('card');
 
@@ -84,8 +85,10 @@ export default function displayCard(input, handleDelete, handleEdit) {
 
   extraInfo.appendChild(infoContainer);
   cardDiv.appendChild(extraInfo);
+  // #endregion
 
   // Buttons div
+  //#region
   const buttonsDiv = document.createElement('div');
   buttonsDiv.classList.add('edit-buttons-div');
 
@@ -106,7 +109,7 @@ export default function displayCard(input, handleDelete, handleEdit) {
       'Are you sure you want to delete this project?'
     );
     if (confirmDelete) {
-      handleDelete(input);
+      deleteItem(input, key);
     }
   });
 
@@ -123,12 +126,12 @@ export default function displayCard(input, handleDelete, handleEdit) {
   `;
   editButton.addEventListener('click', () => {
     // Call a function to handle the edit action
-    handleEdit(input);
+    editItem(input, key);
   });
 
   buttonsDiv.appendChild(editButton);
   extraInfo.appendChild(buttonsDiv);
-  // #endregion
+  //#endregion
 
   // Add event listener to toggle extra info visibility
   cardDiv.addEventListener('click', toggleExtraInfoVisibility);

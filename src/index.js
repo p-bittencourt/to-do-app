@@ -2,8 +2,9 @@ import displayTasks from './assets/components/displayTasks.js';
 import displayProjects from './assets/components/displayProjects.js';
 import createTask from './assets/components/createTask.js';
 import createProject from './assets/components/createProject.js';
-import { retrieveTasks } from './assets/util/taskStorage.js';
-import { retrieveProjects } from './assets/util/projectStorage.js';
+// import { retrieveTasks } from './assets/util/taskStorage.js';
+// import { retrieveProjects } from './assets/util/projectStorage.js';
+import { fetchItems } from './assets/util/handleStorage.js';
 import { Modal } from 'bootstrap';
 import '../dist/assets/styles/style.css';
 
@@ -62,7 +63,7 @@ document.body.addEventListener('projectUpdated', updateProjectDisplay);
 function updateTaskDisplay() {
   content.innerHTML = '';
   taskModalInstance.hide();
-  const tasks = retrieveTasks();
+  const tasks = fetchItems('tasks');
   content.appendChild(addNewTaskDiv);
   content.appendChild(displayTasks(tasks));
 }
@@ -70,7 +71,7 @@ function updateTaskDisplay() {
 function updateProjectDisplay() {
   content.innerHTML = '';
   projectModalInstance.hide();
-  const projects = retrieveProjects();
+  const projects = fetchItems('projects');
   content.appendChild(addNewTaskDiv);
   content.appendChild(displayProjects(projects));
 }

@@ -1,5 +1,6 @@
 import Task from '../util/Task';
-import { storeTask } from '../util/taskStorage';
+//import { storeTask } from '../util/taskStorage';
+import { storeItem } from '../util/handleStorage';
 //import createTaskForm from '../util/createTaskForm';
 import createForm from '../util/createForm';
 
@@ -55,7 +56,8 @@ const submitForm = (event) => {
     taskPriority
   );
 
-  storeTask(newTask);
+  // storeTask(newTask);
+  storeItem(newTask, 'tasks');
 
   const form = document.getElementById('taskForm');
   form.reset();

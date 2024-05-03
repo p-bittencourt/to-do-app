@@ -1,5 +1,5 @@
 import displayCard from '../util/displayCard';
-import { deleteTask, editTask } from '../util/taskStorage';
+// import { deleteTask, editTask } from '../util/taskStorage';
 
 export default function displayTasks(tasks) {
   const taskDisplay = document.createElement('div');
@@ -26,6 +26,6 @@ const taskCard = (task) => {
   taskDiv.classList.add('card');
   taskDiv.id = task.id;
 
-  taskDiv.appendChild(displayCard(task, deleteTask, editTask));
+  taskDiv.appendChild(displayCard(task, 'tasks'));
   return taskDiv;
 };
