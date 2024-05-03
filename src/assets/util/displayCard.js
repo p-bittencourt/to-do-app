@@ -3,6 +3,7 @@ import { deleteItem, editItem, fetchSingleItem } from './handleStorage';
 
 export default function displayCard(input, key) {
   const cardDiv = document.createElement('div');
+  cardDiv.classList.add('main-card');
   // cardDiv.classList.add('card');
 
   // Set mainInfo
@@ -134,10 +135,44 @@ export default function displayCard(input, key) {
   extraInfo.appendChild(buttonsDiv);
   //#endregion
 
+  if (key === 'projects') {
+    const projectTasks = displayProjectTasks(input);
+    if (projectTasks) {
+      cardDiv.appendChild(projectTasks);
+    }
+  }
+
   // Add event listener to toggle extra info visibility
   cardDiv.addEventListener('click', toggleExtraInfoVisibility);
   return cardDiv;
 }
+
+const projectTaskCard = (task) => {
+  const taskCard = document.createElement('div');
+  taskCard.classList.add('task-card');
+  taskCard.innerHTML = `
+    <h5>${task.title}</h5>
+    <p>${task.description}</p>
+  `;
+  return taskCard;
+};
+
+const displayProjectTasks = (project) => {
+  const projectTasks = project.projectTasks;
+  if (projectTasks.length === 0) {
+    return null;
+  }
+  const tasksContainer = document.createElement('div');
+  tasksContainer.classList.add('tasks-container');
+  projectTasks.forEach((task) => {
+    const taskItem = fetchSingleItem(task, 'tasks');
+    if (taskItem) {
+      const taskCard = projectTaskCard(taskItem);
+      tasksContainer.appendChild(taskCard);
+    }
+  });
+  return tasksContainer;
+};
 
 const toggleExtraInfoVisibility = (event) => {
   const extraInfo = event.currentTarget.querySelector('.extra-info');

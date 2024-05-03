@@ -87,6 +87,9 @@ const submitForm = (event, type) => {
   }
 
   storeItem(newItem, type);
+
+  const form = document.getElementById(`${type}Form`);
+  form.reset();
 };
 
 function createProjectSelect() {
