@@ -84,7 +84,7 @@ function updateProjectDisplay() {
 
 function updateProjectSelect(form) {
   const oldProjectSelect = form.querySelector('#configProject').parentElement;
-  const newProjectSelect = createProjectSelect(form);
+  const newProjectSelect = createProjectSelect();
   form
     .querySelector('.extra-info')
     .replaceChild(newProjectSelect, oldProjectSelect);

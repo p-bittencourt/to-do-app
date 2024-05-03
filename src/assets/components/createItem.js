@@ -79,7 +79,7 @@ const submitForm = (event, type) => {
   storeItem(newItem, type);
 };
 
-function createProjectSelect(form) {
+function createProjectSelect() {
   const projects = fetchItems('projects');
   const selectDiv = document.createElement('div');
   selectDiv.classList.add('mb-3');
@@ -96,7 +96,7 @@ function createProjectSelect(form) {
 }
 
 const addProjectSelectToForm = (form) => {
-  const projectsSelect = createProjectSelect(form);
+  const projectsSelect = createProjectSelect();
   form.querySelector('.extra-info').appendChild(projectsSelect);
 };
 
