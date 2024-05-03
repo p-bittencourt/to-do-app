@@ -91,4 +91,11 @@ function setItemToLocalStorage(item, key) {
   updateEvent(key);
 }
 
-export { fetchItems, storeItem, deleteItem, editItem, fetchSingleItem };
+export {
+  fetchItems,
+  storeItem,
+  deleteItem,
+  editItem,
+  fetchSingleItem,
+  updateItemInStorage,
+};

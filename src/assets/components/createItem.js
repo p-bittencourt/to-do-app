@@ -1,6 +1,11 @@
 import Project from '../util/Project';
 import Task from '../util/Task';
-import { storeItem, fetchItems } from '../util/handleStorage';
+import {
+  storeItem,
+  fetchItems,
+  fetchSingleItem,
+  updateItemInStorage,
+} from '../util/handleStorage';
 import createForm from '../util/createForm';
 
 function createItem(type) {
@@ -67,6 +72,11 @@ const submitForm = (event, type) => {
       inputPriority,
       inputProject
     );
+    if (inputProject) {
+      const project = fetchSingleItem(inputProject, 'projects');
+      project.projectTasks.push(newItem.id);
+      updateItemInStorage(project, 'projects');
+    }
   } else {
     newItem = new Project(
       inputTitle,
