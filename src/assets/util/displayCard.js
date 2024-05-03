@@ -31,7 +31,7 @@ export default function displayCard(input, key) {
   // checkDone.textContent = 'Done';
   checkDone.addEventListener('click', (event) => {
     event.stopPropagation();
-    console.log('done');
+    console.log(input);
   });
   checkDoneDiv.appendChild(checkDone);
   mainInfo.appendChild(checkDoneDiv);

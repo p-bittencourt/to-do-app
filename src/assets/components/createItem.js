@@ -58,19 +58,23 @@ const submitForm = (event, type) => {
   }
 
   let newItem;
-  type == 'projects'
-    ? (newItem = new Project(
-        inputTitle,
-        inputDescription,
-        inputDueDate,
-        inputPriority
-      ))
-    : (newItem = new Task(
-        inputTitle,
-        inputDescription,
-        inputDueDate,
-        inputPriority
-      ));
+  if (type == 'tasks') {
+    const inputProject = formData.get('configProject');
+    newItem = new Task(
+      inputTitle,
+      inputDescription,
+      inputDueDate,
+      inputPriority,
+      inputProject
+    );
+  } else {
+    newItem = new Project(
+      inputTitle,
+      inputDescription,
+      inputDueDate,
+      inputPriority
+    );
+  }
 
   storeItem(newItem, type);
 };
