@@ -1,5 +1,10 @@
 import { format } from 'date-fns';
-import { deleteItem, editItem, fetchSingleItem } from './handleStorage';
+import {
+  deleteItem,
+  editItem,
+  fetchSingleItem,
+  updateItemInStorage,
+} from './handleStorage';
 
 export default function displayCard(input, key) {
   const cardDiv = document.createElement('div');
@@ -31,6 +36,8 @@ export default function displayCard(input, key) {
   // checkDone.textContent = 'Done';
   checkDone.addEventListener('click', (event) => {
     event.stopPropagation();
+    input.completed = !input.completed;
+    updateItemInStorage(input, key);
     console.log(input);
   });
   checkDoneDiv.appendChild(checkDone);
@@ -147,6 +154,8 @@ export default function displayCard(input, key) {
   cardDiv.addEventListener('click', toggleExtraInfoVisibility);
   return cardDiv;
 }
+
+const checkDone = (event, item) => {};
 
 const projectTaskCard = (task) => {
   const taskCard = document.createElement('div');
