@@ -37,10 +37,13 @@ const itemCard = (item, type) => {
 };
 
 const displayCompletedItems = (items, type) => {
-  // const completedItems = items.filter((item) => item.completed == true);
   const completedItemsDisplay = document.createElement('div');
-  completedItemsDisplay.classList.add('completed-items-display', 'text-center');
-  const h3 = document.createElement('h3');
+  completedItemsDisplay.classList.add(
+    'completed-items-display',
+    'text-center',
+    'mt-5'
+  );
+  const h3 = document.createElement('h3', 'mb-2');
   const title = type.charAt(0).toUpperCase() + type.slice(1);
   h3.textContent = `Completed ${title}`;
   completedItemsDisplay.appendChild(h3);
