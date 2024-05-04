@@ -44,9 +44,12 @@ const displayCompletedItems = (items, type) => {
   const title = type.charAt(0).toUpperCase() + type.slice(1);
   h3.textContent = `Completed ${title}`;
   completedItemsDisplay.appendChild(h3);
+  const completedItemsDiv = document.createElement('div');
+  completedItemsDiv.classList.add('completed-items');
+  completedItemsDisplay.appendChild(completedItemsDiv);
 
   items.forEach((item) => {
-    completedItemsDisplay.appendChild(completedItemCard(item));
+    completedItemsDiv.appendChild(completedItemCard(item));
   });
 
   return completedItemsDisplay;
@@ -54,7 +57,7 @@ const displayCompletedItems = (items, type) => {
 
 const completedItemCard = (item) => {
   const itemDiv = document.createElement('div');
-  itemDiv.classList.add('completed-item-card');
+  itemDiv.classList.add('card');
   itemDiv.id = item.id;
   itemDiv.innerHTML = `
   <div class="task-title">
@@ -62,6 +65,11 @@ const completedItemCard = (item) => {
   </div>
   <div class="task-description">
     <p class>${item.description}</p>
+  </div>
+  <div class="check-done-div">
+      <input class="form-check-input mx-1 bg-dark rounded" type="checkbox" id="checkDone" ${
+        item.completed ? 'checked' : ''
+      }>
   </div>`;
 
   return itemDiv;
