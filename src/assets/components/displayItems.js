@@ -1,4 +1,4 @@
-import displayCard from '../util/displayCard';
+import { displayCard, completedItemCard } from '../util/displayCard';
 
 export default function displayItems(items, type) {
   const itemsDisplay = document.createElement('div');
@@ -39,7 +39,7 @@ const itemCard = (item, type) => {
 const displayCompletedItems = (items, type) => {
   // const completedItems = items.filter((item) => item.completed == true);
   const completedItemsDisplay = document.createElement('div');
-  completedItemsDisplay.classList.add('completed-items-display');
+  completedItemsDisplay.classList.add('completed-items-display', 'text-center');
   const h3 = document.createElement('h3');
   const title = type.charAt(0).toUpperCase() + type.slice(1);
   h3.textContent = `Completed ${title}`;
@@ -53,24 +53,4 @@ const displayCompletedItems = (items, type) => {
   });
 
   return completedItemsDisplay;
-};
-
-const completedItemCard = (item) => {
-  const itemDiv = document.createElement('div');
-  itemDiv.classList.add('card');
-  itemDiv.id = item.id;
-  itemDiv.innerHTML = `
-  <div class="task-title">
-    <h5>${item.title}</h5>
-  </div>
-  <div class="task-description">
-    <p class>${item.description}</p>
-  </div>
-  <div class="check-done-div">
-      <input class="form-check-input mx-1 bg-dark rounded" type="checkbox" id="checkDone" ${
-        item.completed ? 'checked' : ''
-      }>
-  </div>`;
-
-  return itemDiv;
 };

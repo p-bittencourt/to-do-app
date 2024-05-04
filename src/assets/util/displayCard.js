@@ -6,7 +6,7 @@ import {
   updateItemInStorage,
 } from './handleStorage';
 
-export default function displayCard(input, key) {
+function displayCard(input, key) {
   const cardDiv = document.createElement('div');
   cardDiv.classList.add('main-card');
 
@@ -157,28 +157,45 @@ export default function displayCard(input, key) {
 
 const checkDone = (event, item) => {};
 
+function completedItemCard(item) {
+  const itemDiv = document.createElement('div');
+  itemDiv.classList.add('completed-card');
+  itemDiv.id = item.id;
+  itemDiv.appendChild(itemSummary(item));
+
+  return itemDiv;
+}
+
 const projectTaskCard = (task) => {
   const taskCard = document.createElement('div');
-  taskCard.classList.add('task-card');
-  taskCard.innerHTML = `
-    <div class="task-title">
-      <h5>${task.title}</h5>
-    </div>
-    <div class="task-description">
-      <p class>${task.description}</p>
-    </div>
-    <div class="check-done-div">
-      <input class="form-check-input mx-1 bg-dark rounded" type="checkbox" id="checkDone">
-    </div>
-  `;
-  const checkDone = taskCard.querySelector('#checkDone');
-  checkDone.addEventListener('click', (event) => {
-    event.stopPropagation();
-    console.log(task);
-  });
+  taskCard.appendChild(itemSummary(task));
 
   return taskCard;
 };
+
+function itemSummary(item) {
+  const itemSummary = document.createElement('div');
+  itemSummary.classList.add('task-card');
+  itemSummary.innerHTML = `
+  <div class="task-title">
+    <h5>${item.title}</h5>
+  </div>
+  <div class="task-description">
+    <p class>${item.description}</p>
+  </div>
+  <div class="check-done-div">
+      <input class="form-check-input mx-1 bg-dark rounded" type="checkbox" id="checkDone" ${
+        item.completed ? 'checked' : ''
+      }>
+  </div>`;
+  const checkDone = itemSummary.querySelector('#checkDone');
+  checkDone.addEventListener('click', (event) => {
+    event.stopPropagation();
+    console.log(item);
+  });
+
+  return itemSummary;
+}
 
 const displayProjectTasks = (project) => {
   const projectTasks = project.projectTasks;
@@ -201,3 +218,5 @@ const toggleExtraInfoVisibility = (event) => {
   const extraInfo = event.currentTarget.querySelector('.extra-info');
   extraInfo.classList.toggle('show');
 };
+
+export { displayCard, completedItemCard };
