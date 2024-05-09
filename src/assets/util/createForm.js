@@ -1,3 +1,5 @@
+// Create a form which can be used to create or edit a task or project
+
 export default function createForm(config = {}) {
   const form = document.createElement('form');
   form.innerHTML = `

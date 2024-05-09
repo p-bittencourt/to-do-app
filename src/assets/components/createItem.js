@@ -8,11 +8,15 @@ import {
 } from '../util/handleStorage';
 import createForm from '../util/createForm';
 
+// Create a modal for creating a new item
+// Type will tell if it is a project or a task
 function createItem(type) {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.id = `create${type}Modal`;
   const form = createForm();
+  // Add project select to task form to allow users
+  // to set a project for the task
   if (type == 'tasks') {
     addProjectSelectToForm(form);
   }
@@ -26,6 +30,8 @@ function createItem(type) {
   return modal;
 }
 
+// Create the modal content
+// formElement is imported from createForm.js
 const itemModal = (formElement, type) => {
   const title = type.charAt(0).toUpperCase() + type.slice(1, -1);
   return `
@@ -49,6 +55,7 @@ const itemModal = (formElement, type) => {
       `;
 };
 
+// Submit the form
 const submitForm = (event, type) => {
   event.preventDefault();
   const formData = new FormData(document.getElementById(`${type}Form`));
@@ -64,6 +71,8 @@ const submitForm = (event, type) => {
 
   let newItem;
   if (type == 'tasks') {
+    // Add a new Task
+    // If a project is selected, add the task to the project
     const inputProject = formData.get('configProject');
     newItem = new Task(
       inputTitle,
@@ -86,12 +95,15 @@ const submitForm = (event, type) => {
     );
   }
 
+  // Store the new item in localStorage
   storeItem(newItem, type);
 
+  // Clear the form for the next submissions
   const form = document.getElementById(`${type}Form`);
   form.reset();
 };
 
+// Creates the project select dropdown
 function createProjectSelect() {
   const projects = fetchItems('projects');
   const selectDiv = document.createElement('div');
@@ -108,6 +120,7 @@ function createProjectSelect() {
   return selectDiv;
 }
 
+// Add the project select dropdown to the form
 const addProjectSelectToForm = (form) => {
   const projectsSelect = createProjectSelect();
   form.querySelector('.extra-info').appendChild(projectsSelect);

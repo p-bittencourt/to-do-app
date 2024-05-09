@@ -1,5 +1,6 @@
 import { displayCard, completedItemCard } from '../util/displayCard';
 
+// Creates the itemsDisplay div
 export default function displayItems(items, type) {
   const itemsDisplay = document.createElement('div');
   itemsDisplay.classList.add('items-display');
@@ -8,17 +9,20 @@ export default function displayItems(items, type) {
   h3.textContent = title;
   itemsDisplay.appendChild(h3);
 
+  // If there are no items to display
   if (items.length == 0) {
     const p = document.createElement('p');
     p.textContent = `No ${type} to display`;
     itemsDisplay.appendChild(p);
   } else {
+    // Display not completed items
     const notCompletedItems = items.filter((item) => item.completed == false);
     notCompletedItems.forEach((item) => {
       itemsDisplay.appendChild(itemCard(item, type));
     });
   }
 
+  // Create completed items display if there are any
   const completedItems = items.filter((item) => item.completed == true);
   if (completedItems.length > 0) {
     const toggleButton = document.createElement('button');
@@ -37,15 +41,19 @@ export default function displayItems(items, type) {
   return itemsDisplay;
 }
 
+// Item card creates the outer div for each item
 const itemCard = (item, type) => {
   const itemDiv = document.createElement('div');
   itemDiv.classList.add('card');
   itemDiv.id = item.id;
 
+  // Appends the displayCard to the outer div
   itemDiv.appendChild(displayCard(item, type));
   return itemDiv;
 };
 
+// Creates the display for created items
+// It starts hidden
 const displayCompletedItems = (items, type) => {
   const completedItemsDisplay = document.createElement('div');
   completedItemsDisplay.id = 'completedItemsDisplay';
@@ -63,6 +71,7 @@ const displayCompletedItems = (items, type) => {
   completedItemsDiv.classList.add('completed-items');
   completedItemsDisplay.appendChild(completedItemsDiv);
 
+  // Adds each completed item to the display
   items.forEach((item) => {
     completedItemsDiv.appendChild(completedItemCard(item, type));
   });

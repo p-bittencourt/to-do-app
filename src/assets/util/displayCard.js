@@ -6,11 +6,12 @@ import {
   checkDoneFunction,
 } from './handleStorage';
 
+// Display a card for a task or project
 function displayCard(input, key) {
   const cardDiv = document.createElement('div');
   cardDiv.classList.add('main-card');
 
-  // Set mainInfo
+  // Set mainInfo container with title, description and check done button
   // #region
   const mainInfo = document.createElement('div');
   mainInfo.classList.add('main-info');
@@ -43,7 +44,7 @@ function displayCard(input, key) {
   cardDiv.appendChild(mainInfo);
   // #endregion
 
-  // Add project tasks
+  // Add project tasks to project card
   // #region
   if (key === 'projects') {
     const projectTasks = displayProjectTasks(input);
@@ -53,7 +54,7 @@ function displayCard(input, key) {
   }
   // #endregion
 
-  // Set extraInfo
+  // Set extraInfo container with due date, priority and assigned project in the case of tasks
   // #region
   const extraInfo = document.createElement('div');
   extraInfo.classList.add('extra-info');
@@ -152,6 +153,7 @@ function displayCard(input, key) {
   return cardDiv;
 }
 
+// Display a card for a completed task or project
 function completedItemCard(item, type) {
   const itemDiv = document.createElement('div');
   itemDiv.classList.add('completed-card');
@@ -161,6 +163,7 @@ function completedItemCard(item, type) {
   return itemDiv;
 }
 
+// Display a card for a project task
 const projectTaskCard = (task) => {
   const taskCard = document.createElement('div');
   taskCard.appendChild(itemSummary(task));
@@ -168,6 +171,7 @@ const projectTaskCard = (task) => {
   return taskCard;
 };
 
+// Creates the itemSummary to be used by competedItemCard or projectTaskCard
 function itemSummary(item, type) {
   const itemSummary = document.createElement('div');
   itemSummary.classList.add('task-card');
@@ -188,6 +192,7 @@ function itemSummary(item, type) {
   return itemSummary;
 }
 
+// Creates the display for project tasks
 const displayProjectTasks = (project) => {
   const projectTasks = project.projectTasks;
   if (projectTasks.length === 0) {
