@@ -104,7 +104,7 @@ const submitForm = (event, type) => {
 };
 
 // Creates the project select dropdown
-function createProjectSelect() {
+function createProjectSelect(selectedProjectId = null) {
   const projects = fetchItems('projects');
   const selectDiv = document.createElement('div');
   selectDiv.classList.add('mb-3');
@@ -113,7 +113,9 @@ function createProjectSelect() {
         <select class="form-select" id="configProject" name="configProject">
             <option value="">None</option>
             ${projects.map((project) => {
-              return `<option value="${project.id}">${project.title}</option>`;
+              const selected =
+                project.id === selectedProjectId ? 'selected' : '';
+              return `<option value="${project.id}" ${selected}>${project.title}</option>`;
             })}
         </select>
     `;

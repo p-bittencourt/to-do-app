@@ -44,13 +44,13 @@ addNewTaskButton.classList.add('btn', 'btn-primary', 'my-1');
 addNewTaskButton.textContent = 'Add New Task';
 addNewTaskDiv.appendChild(addNewTaskButton);
 addNewTaskButton.addEventListener('click', () => {
-  taskModalInstance.show();
+  showTaskModal();
 });
 let startNewProjectButton = document.createElement('button');
 startNewProjectButton.classList.add('btn', 'btn-secondary', 'my-1');
 startNewProjectButton.textContent = 'Start New Project';
 startNewProjectButton.addEventListener('click', () => {
-  projectModalInstance.show();
+  showProjectModal();
 });
 addNewTaskDiv.appendChild(addNewTaskButton);
 addNewTaskDiv.appendChild(startNewProjectButton);
@@ -62,6 +62,23 @@ document.body.addEventListener('projectUpdated', updateProjectDisplay);
 
 // functions to update display
 //#region
+export function showTaskModal(selectedProjectId = null) {
+  taskModalInstance.show();
+
+  if (selectedProjectId) {
+    const form = document.querySelector('#tasksForm');
+    const projectSelect = form.querySelector('#configProject').parentElement;
+    const newProjectSelect = createProjectSelect(selectedProjectId);
+    form
+      .querySelector('.extra-info')
+      .replaceChild(newProjectSelect, projectSelect);
+  }
+}
+
+function showProjectModal() {
+  projectModalInstance.show();
+}
+
 function updateTaskDisplay() {
   content.innerHTML = '';
   taskModalInstance.hide();

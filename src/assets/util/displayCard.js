@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { showTaskModal } from '../..';
 import {
   deleteItem,
   editItem,
@@ -142,6 +143,16 @@ function displayCard(input, key) {
     // Call a function to handle the edit action
     editItem(input, key);
   });
+
+  if (key === 'projects') {
+    const addTaskButton = document.createElement('button');
+    addTaskButton.classList.add('btn', 'btn-primary');
+    addTaskButton.textContent = 'Add Task';
+    addTaskButton.addEventListener('click', () => {
+      showTaskModal(input.id);
+    });
+    buttonsDiv.appendChild(addTaskButton);
+  }
 
   buttonsDiv.appendChild(editButton);
   buttonsDiv.appendChild(deleteButton);
