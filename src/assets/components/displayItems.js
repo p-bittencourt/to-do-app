@@ -73,7 +73,7 @@ const displayCompletedItems = (items, type) => {
 
   // Adds each completed item to the display
   items.forEach((item) => {
-    completedItemsDiv.appendChild(completedItemCard(item, type));
+    completedItemsDiv.appendChild(completedItemCard(item));
   });
 
   return completedItemsDisplay;

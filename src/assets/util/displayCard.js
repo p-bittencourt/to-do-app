@@ -5,6 +5,7 @@ import {
   editItem,
   fetchSingleItem,
   checkDoneFunction,
+  updateEvent,
 } from './handleStorage';
 
 // Display a card for a task or project
@@ -37,7 +38,7 @@ function displayCard(input, key) {
   checkDone.type = 'checkbox';
   // checkDone.textContent = 'Done';
   checkDone.addEventListener('click', (event) => {
-    checkDoneFunction(event, input, key);
+    checkDoneFunction(event, input.id, key);
   });
   checkDoneDiv.appendChild(checkDone);
   mainInfo.appendChild(checkDoneDiv);
@@ -165,11 +166,11 @@ function displayCard(input, key) {
 }
 
 // Display a card for a completed task or project
-function completedItemCard(item, type) {
+function completedItemCard(item) {
   const itemDiv = document.createElement('div');
   itemDiv.classList.add('completed-card');
   itemDiv.id = item.id;
-  itemDiv.appendChild(itemSummary(item, type));
+  itemDiv.appendChild(itemSummary(item));
 
   return itemDiv;
 }
@@ -183,7 +184,7 @@ const projectTaskCard = (task) => {
 };
 
 // Creates the itemSummary to be used by competedItemCard or projectTaskCard
-function itemSummary(item, type) {
+function itemSummary(item) {
   const itemSummary = document.createElement('div');
   itemSummary.classList.add('task-card');
   itemSummary.innerHTML = `
@@ -197,7 +198,8 @@ function itemSummary(item, type) {
   </div>`;
   const checkDone = itemSummary.querySelector('#checkDone');
   checkDone.addEventListener('click', (event) => {
-    checkDoneFunction(event, item, type);
+    checkDoneFunction(event, item.id, 'tasks');
+    updateEvent('projects');
   });
 
   return itemSummary;

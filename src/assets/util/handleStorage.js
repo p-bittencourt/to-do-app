@@ -94,8 +94,10 @@ function setItemToLocalStorage(item, key) {
   updateEvent(key);
 }
 
-function checkDoneFunction(event, item, key) {
+function checkDoneFunction(event, itemId, key) {
   event.stopPropagation();
+
+  let item = fetchSingleItem(itemId, key);
   item.completed = !item.completed;
   updateItemInStorage(item, key);
 }
@@ -118,4 +120,5 @@ export {
   fetchSingleItem,
   updateItemInStorage,
   checkDoneFunction,
+  updateEvent,
 };
