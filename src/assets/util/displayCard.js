@@ -175,9 +175,6 @@ function itemSummary(item, type) {
   <div class="task-title">
     <h5>${item.title}</h5>
   </div>
-  <div class="task-description">
-    <p class>${item.description}</p>
-  </div>
   <div class="check-done-div">
       <input class="form-check-input mx-1 bg-dark rounded" type="checkbox" id="checkDone" ${
         item.completed ? 'checked' : ''
