@@ -21,7 +21,17 @@ export default function displayItems(items, type) {
 
   const completedItems = items.filter((item) => item.completed == true);
   if (completedItems.length > 0) {
+    const toggleButton = document.createElement('button');
+    toggleButton.classList.add('btn', 'btn-primary', 'mt-3');
+    toggleButton.textContent = 'Show Completed';
+    itemsDisplay.appendChild(toggleButton);
     itemsDisplay.appendChild(displayCompletedItems(completedItems, type));
+    toggleButton.addEventListener('click', () => {
+      const completedItemsDisplay = document.getElementById(
+        'completedItemsDisplay'
+      );
+      completedItemsDisplay.classList.toggle('hide');
+    });
   }
 
   return itemsDisplay;
@@ -38,10 +48,12 @@ const itemCard = (item, type) => {
 
 const displayCompletedItems = (items, type) => {
   const completedItemsDisplay = document.createElement('div');
+  completedItemsDisplay.id = 'completedItemsDisplay';
   completedItemsDisplay.classList.add(
     'completed-items-display',
     'text-center',
-    'mt-5'
+    'mt-5',
+    'hide'
   );
   const h3 = document.createElement('h3', 'mb-2');
   const title = type.charAt(0).toUpperCase() + type.slice(1);
