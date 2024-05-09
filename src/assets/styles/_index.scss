@@ -72,15 +72,11 @@ body::after {
     .sidebar {
       background-color: $theme-darkyellow;
       height: 8%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
 
       .buttons-div {
         button {
           width: 100%;
-          margin-top: 0.5rem;
+          margin-top: 1rem;
         }
       }
 
@@ -90,7 +86,6 @@ body::after {
       }
 
       @include media-breakpoint-down(md) {
-        flex-direction: column;
         height: fit-content;
 
         .buttons-div {
@@ -98,14 +93,14 @@ body::after {
           display: flex;
 
           button {
-            margin: 0.5rem;
+            margin: 0.5rem 0.5rem 0 0.5rem;
             width: 45%;
           }
         }
 
         .links-div {
-          // display: none;
           display: flex;
+          justify-content: center;
         }
       }
     }
