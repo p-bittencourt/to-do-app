@@ -37,24 +37,35 @@ const projectModalInstance = new Modal(projectModal);
 
 // add task and project div
 //#region
-let addNewTaskDiv = document.createElement('div');
-addNewTaskDiv.classList.add('add-new-task');
-let addNewTaskButton = document.createElement('button');
-addNewTaskButton.classList.add('btn', 'btn-primary', 'my-1');
-addNewTaskButton.textContent = 'Add New Task';
-addNewTaskDiv.appendChild(addNewTaskButton);
+//let addNewTaskDiv = document.createElement('div');
+//addNewTaskDiv.classList.add('add-new-task');
+//let addNewTaskButton = document.createElement('button');
+//addNewTaskButton.classList.add('btn', 'btn-primary', 'my-1');
+//addNewTaskButton.textContent = 'Add New Task';
+//addNewTaskDiv.appendChild(addNewTaskButton);
+//addNewTaskButton.addEventListener('click', () => {
+//  showTaskModal();
+//});
+//let startNewProjectButton = document.createElement('button');
+//startNewProjectButton.classList.add('btn', 'btn-secondary', 'my-1');
+//startNewProjectButton.textContent = 'Start New Project';
+//startNewProjectButton.addEventListener('click', () => {
+//  showProjectModal();
+//});
+//addNewTaskDiv.appendChild(addNewTaskButton);
+//addNewTaskDiv.appendChild(startNewProjectButton);
+//#endregion
+
+// NEW PLACEMENT OF ADD TASK AND PROJECT BUTTONS
+const addNewTaskButton = document.getElementById('add-task-btn');
 addNewTaskButton.addEventListener('click', () => {
   showTaskModal();
 });
-let startNewProjectButton = document.createElement('button');
-startNewProjectButton.classList.add('btn', 'btn-secondary', 'my-1');
-startNewProjectButton.textContent = 'Start New Project';
-startNewProjectButton.addEventListener('click', () => {
+
+const addNewProjectButton = document.getElementById('new-project-btn');
+addNewProjectButton.addEventListener('click', () => {
   showProjectModal();
 });
-addNewTaskDiv.appendChild(addNewTaskButton);
-addNewTaskDiv.appendChild(startNewProjectButton);
-//#endregion
 
 // event listeners
 document.body.addEventListener('taskUpdated', updateTaskDisplay);
@@ -83,7 +94,7 @@ function updateTaskDisplay() {
   content.innerHTML = '';
   taskModalInstance.hide();
   const tasks = fetchItems('tasks');
-  content.appendChild(addNewTaskDiv);
+  // content.appendChild(addNewTaskDiv);
   content.appendChild(displayItems(tasks, 'tasks'));
 }
 
@@ -91,7 +102,7 @@ function updateProjectDisplay() {
   content.innerHTML = '';
   projectModalInstance.hide();
   const projects = fetchItems('projects');
-  content.appendChild(addNewTaskDiv);
+  // content.appendChild(addNewTaskDiv);
   content.appendChild(displayItems(projects, 'projects'));
 
   const form = document.querySelector('#tasksForm');

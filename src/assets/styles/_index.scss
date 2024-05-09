@@ -77,9 +77,36 @@ body::after {
       justify-content: center;
       align-items: center;
 
+      .buttons-div {
+        button {
+          width: 100%;
+          margin-top: 0.5rem;
+        }
+      }
+
       a {
         padding: 5px;
         margin: 5px;
+      }
+
+      @include media-breakpoint-down(md) {
+        flex-direction: column;
+        height: fit-content;
+
+        .buttons-div {
+          width: 100%;
+          display: flex;
+
+          button {
+            margin: 0.5rem;
+            width: 45%;
+          }
+        }
+
+        .links-div {
+          // display: none;
+          display: flex;
+        }
       }
     }
 
@@ -99,6 +126,9 @@ body::after {
       }
 
       @include media-breakpoint-down(md) {
+        height: fit-content;
+        padding: 0.5rem;
+
         .add-new-task {
           justify-content: center;
 
