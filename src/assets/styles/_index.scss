@@ -80,9 +80,13 @@ body::after {
         }
       }
 
-      a {
-        padding: 5px;
-        margin: 5px;
+      .links-div {
+        margin-top: -1rem;
+
+        a {
+          padding: 5px;
+          margin: 5px;
+        }
       }
 
       @include media-breakpoint-down(md) {
