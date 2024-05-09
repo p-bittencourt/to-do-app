@@ -3,7 +3,7 @@ import {
   deleteItem,
   editItem,
   fetchSingleItem,
-  updateItemInStorage,
+  checkDoneFunction,
 } from './handleStorage';
 
 function displayCard(input, key) {
@@ -35,10 +35,7 @@ function displayCard(input, key) {
   checkDone.type = 'checkbox';
   // checkDone.textContent = 'Done';
   checkDone.addEventListener('click', (event) => {
-    event.stopPropagation();
-    input.completed = !input.completed;
-    updateItemInStorage(input, key);
-    console.log(input);
+    checkDoneFunction(event, input, key);
   });
   checkDoneDiv.appendChild(checkDone);
   mainInfo.appendChild(checkDoneDiv);
@@ -155,13 +152,11 @@ function displayCard(input, key) {
   return cardDiv;
 }
 
-const checkDone = (event, item) => {};
-
-function completedItemCard(item) {
+function completedItemCard(item, type) {
   const itemDiv = document.createElement('div');
   itemDiv.classList.add('completed-card');
   itemDiv.id = item.id;
-  itemDiv.appendChild(itemSummary(item));
+  itemDiv.appendChild(itemSummary(item, type));
 
   return itemDiv;
 }
@@ -173,7 +168,7 @@ const projectTaskCard = (task) => {
   return taskCard;
 };
 
-function itemSummary(item) {
+function itemSummary(item, type) {
   const itemSummary = document.createElement('div');
   itemSummary.classList.add('task-card');
   itemSummary.innerHTML = `
@@ -190,8 +185,7 @@ function itemSummary(item) {
   </div>`;
   const checkDone = itemSummary.querySelector('#checkDone');
   checkDone.addEventListener('click', (event) => {
-    event.stopPropagation();
-    console.log(item);
+    checkDoneFunction(event, item, type);
   });
 
   return itemSummary;

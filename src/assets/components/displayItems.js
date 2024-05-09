@@ -52,7 +52,7 @@ const displayCompletedItems = (items, type) => {
   completedItemsDisplay.appendChild(completedItemsDiv);
 
   items.forEach((item) => {
-    completedItemsDiv.appendChild(completedItemCard(item));
+    completedItemsDiv.appendChild(completedItemCard(item, type));
   });
 
   return completedItemsDisplay;

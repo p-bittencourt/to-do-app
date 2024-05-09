@@ -94,6 +94,12 @@ function setItemToLocalStorage(item, key) {
   updateEvent(key);
 }
 
+function checkDoneFunction(event, item, key) {
+  event.stopPropagation();
+  item.completed = !item.completed;
+  updateItemInStorage(item, key);
+}
+
 function updateEvent(key) {
   let event;
   if (key == 'projects') {
@@ -111,4 +117,5 @@ export {
   editItem,
   fetchSingleItem,
   updateItemInStorage,
+  checkDoneFunction,
 };
