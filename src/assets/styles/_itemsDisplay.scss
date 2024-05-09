@@ -200,6 +200,10 @@
   margin: 0 auto;
   justify-content: center;
 
+  @include media-breakpoint-down(md) {
+    width: 95%;
+  }
+
   .completed-card {
     background-color: $theme-white;
     // padding: 0.5rem;

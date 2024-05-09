@@ -35,27 +35,6 @@ document.body.appendChild(projectModal);
 const projectModalInstance = new Modal(projectModal);
 //#endregion
 
-// add task and project div
-//#region
-//let addNewTaskDiv = document.createElement('div');
-//addNewTaskDiv.classList.add('add-new-task');
-//let addNewTaskButton = document.createElement('button');
-//addNewTaskButton.classList.add('btn', 'btn-primary', 'my-1');
-//addNewTaskButton.textContent = 'Add New Task';
-//addNewTaskDiv.appendChild(addNewTaskButton);
-//addNewTaskButton.addEventListener('click', () => {
-//  showTaskModal();
-//});
-//let startNewProjectButton = document.createElement('button');
-//startNewProjectButton.classList.add('btn', 'btn-secondary', 'my-1');
-//startNewProjectButton.textContent = 'Start New Project';
-//startNewProjectButton.addEventListener('click', () => {
-//  showProjectModal();
-//});
-//addNewTaskDiv.appendChild(addNewTaskButton);
-//addNewTaskDiv.appendChild(startNewProjectButton);
-//#endregion
-
 // NEW PLACEMENT OF ADD TASK AND PROJECT BUTTONS
 const addNewTaskButton = document.getElementById('add-task-btn');
 addNewTaskButton.addEventListener('click', () => {

@@ -71,7 +71,11 @@ body::after {
 
     .sidebar {
       background-color: $theme-darkyellow;
-      height: 8%;
+      height: 100%;
+      width: 14%;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
 
       .buttons-div {
         button {
@@ -81,8 +85,7 @@ body::after {
       }
 
       .links-div {
-        margin-top: -1rem;
-
+        margin-top: 1rem;
         a {
           padding: 5px;
           margin: 5px;
@@ -112,50 +115,31 @@ body::after {
 
     .main-content {
       background-color: whitesmoke;
-      height: 92%;
+      height: 100%;
+      width: 86%;
       overflow-y: auto;
       padding: 2rem;
 
-      .add-new-task {
-        display: flex;
-        justify-content: flex-end;
-
-        button {
-          margin-right: 1.8rem;
-        }
-      }
-
-      @include media-breakpoint-down(md) {
-        height: fit-content;
-        padding: 0.5rem;
-
-        .add-new-task {
-          justify-content: center;
-
-          button {
-            margin-right: 0;
-            margin-top: -1rem;
-          }
-        }
+      button {
+        margin: 1.5rem;
       }
     }
 
-    @include media-breakpoint-up(md) {
-      .sidebar {
-        height: 100%;
-        width: 14%;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
+    @include media-breakpoint-down(md) {
+      flex-direction: column;
+      height: fit-content;
 
-        a:first-child {
-          margin-top: 2rem;
-        }
+      .sidebar {
+        width: 100%;
       }
 
       .main-content {
-        height: 100%;
-        width: 86%;
+        width: 100%;
+        padding: 0.5rem;
+
+        button {
+          margin: 0.5rem;
+        }
       }
     }
   }
@@ -171,6 +155,11 @@ body::after {
 
     p {
       margin-top: 0.5rem;
+    }
+
+    @include media-breakpoint-down(md) {
+      position: relative;
+      width: 100vw;
     }
   }
 }

@@ -26,7 +26,7 @@ export default function displayItems(items, type) {
   const completedItems = items.filter((item) => item.completed == true);
   if (completedItems.length > 0) {
     const toggleButton = document.createElement('button');
-    toggleButton.classList.add('btn', 'btn-primary', 'mt-3');
+    toggleButton.classList.add('btn', 'btn-primary');
     toggleButton.textContent = 'Show Completed';
     itemsDisplay.appendChild(toggleButton);
     itemsDisplay.appendChild(displayCompletedItems(completedItems, type));
@@ -60,7 +60,6 @@ const displayCompletedItems = (items, type) => {
   completedItemsDisplay.classList.add(
     'completed-items-display',
     'text-center',
-    'mt-5',
     'hide'
   );
   const h3 = document.createElement('h3', 'mb-2');
