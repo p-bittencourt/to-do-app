@@ -18,6 +18,7 @@
 .show {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .card:hover {
@@ -28,6 +29,7 @@
 .card .extra-info.show {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .edit-mode {
