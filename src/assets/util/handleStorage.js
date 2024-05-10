@@ -40,8 +40,8 @@ function editItem(item, key) {
   confirmEdit.textContent = 'Confirm';
   confirmEdit.classList.add('btn', 'btn-light', 'edit-button');
 
-  const mainInfoDiv = form.querySelector('.main-info');
-  mainInfoDiv.classList.toggle('edit-mode');
+  const cardDiv = document.getElementById(`${item.id}`);
+  cardDiv.classList.toggle('edit-mode');
 
   const cancelEdit = document.createElement('button');
   cancelEdit.type = 'button';
