@@ -16,25 +16,25 @@
 }
 
 .show {
-  display: flex;
+  display: flex !important;
   justify-content: space-around;
-  align-items: center;
 }
 
 .card:hover {
   cursor: pointer;
 }
 
-.card:not(.edit-mode):hover .extra-info,
-.card .extra-info.show {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
+// .card:not(.edit-mode):hover .extra-info,
+// .card {
+//   display: flex;
+//   justify-content: space-around;
+//   align-items: center;
+// }
 
 .edit-mode {
+  align-items: center !important;
   .main-info {
-    flex-direction: column;
+    flex-direction: column !important;
   }
 }
 
@@ -78,17 +78,29 @@
     }
   }
 
+  &:hover {
+    .extra-info {
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
   @include media-breakpoint-down(md) {
     width: 100%; // Aumenta a largura do card para 90% em telas pequenas
     padding: 0.4rem; // Reduz o padding do card para 0.4rem em telas pequenas
     margin: 0.4rem; // Reduz a margem do card para 0.4rem em telas pequenas
     flex-direction: column;
 
-    .main-info,
     .extra-info {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+    }
+
+    .main-info {
       padding: 0.2rem; // Reduz o padding das seções de informações para 0.2rem em telas pequenas
       width: 100%;
-      flex-direction: column;
+      flex-direction: row;
 
       .check-done-div {
         display: flex;
@@ -192,9 +204,9 @@
   }
 }
 
-.hide {
-  display: none;
-}
+// .hide {
+//   display: none !important;
+// }
 
 .completed-items {
   display: flex;

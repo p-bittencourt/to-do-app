@@ -59,7 +59,7 @@ function displayCard(input, key) {
   // Set extraInfo container with due date, priority and assigned project in the case of tasks
   // #region
   const extraInfo = document.createElement('div');
-  extraInfo.classList.add('extra-info');
+  extraInfo.classList.add('extra-info', 'hide');
   const infoContainer = document.createElement('div');
   infoContainer.classList.add('info-container');
 
@@ -98,7 +98,7 @@ function displayCard(input, key) {
     const project = fetchSingleItem(input.project, 'projects');
     if (project) {
       const projectElement = document.createElement('p');
-      projectElement.textContent = `Project: ${project.title}`;
+      projectElement.textContent = `${project.title}`;
       infoContainer.appendChild(projectElement);
     }
   }
@@ -162,6 +162,7 @@ function displayCard(input, key) {
 
   // Add event listener to toggle extra info visibility
   cardDiv.addEventListener('click', toggleExtraInfoVisibility);
+  // cardDiv.addEventListener('touchstart', toggleExtraInfoVisibility);
   return cardDiv;
 }
 
