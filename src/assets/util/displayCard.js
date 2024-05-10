@@ -171,6 +171,10 @@ function completedItemCard(item) {
   itemDiv.classList.add('completed-card');
   itemDiv.id = item.id;
   itemDiv.appendChild(itemSummary(item));
+  const checkDone = itemDiv.querySelector('#checkDone');
+  checkDone.addEventListener('click', (event) => {
+    checkDoneFunction(event, item.id, 'tasks');
+  });
 
   return itemDiv;
 }
@@ -179,6 +183,11 @@ function completedItemCard(item) {
 const projectTaskCard = (task) => {
   const taskCard = document.createElement('div');
   taskCard.appendChild(itemSummary(task));
+  const checkDone = taskCard.querySelector('#checkDone');
+  checkDone.addEventListener('click', (event) => {
+    checkDoneFunction(event, task.id, 'tasks');
+    updateEvent('projects');
+  });
 
   return taskCard;
 };
@@ -196,11 +205,6 @@ function itemSummary(item) {
         item.completed ? 'checked' : ''
       }>
   </div>`;
-  const checkDone = itemSummary.querySelector('#checkDone');
-  checkDone.addEventListener('click', (event) => {
-    checkDoneFunction(event, item.id, 'tasks');
-    updateEvent('projects');
-  });
 
   return itemSummary;
 }
