@@ -74,9 +74,13 @@ function handleNewItemInfo(form, item, key) {
   const newDueDate = form.querySelector('#configDueDate').value;
   const newPriority = form.querySelector('#configPriority').value;
 
+  let date = new Date(newDueDate);
+  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+  date.toLocaleDateString();
+
   item.title = newTitle;
   item.description = newDescription;
-  item.dueDate = newDueDate;
+  item.dueDate = date;
   item.priority = newPriority;
 
   updateItemInStorage(item, key);

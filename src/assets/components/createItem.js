@@ -72,7 +72,6 @@ const submitForm = (event, type) => {
   let date = new Date(inputDueDate);
   date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
   date.toLocaleDateString();
-  console.log(date);
 
   let newItem;
   if (type == 'tasks') {
@@ -99,8 +98,6 @@ const submitForm = (event, type) => {
       inputPriority
     );
   }
-
-  console.log(newItem);
 
   // Store the new item in localStorage
   storeItem(newItem, type);
