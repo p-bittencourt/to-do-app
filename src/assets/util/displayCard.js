@@ -59,7 +59,7 @@ function displayCard(input, key) {
   // Set extraInfo container with due date, priority and assigned project in the case of tasks
   // #region
   const extraInfo = document.createElement('div');
-  extraInfo.classList.add('extra-info', 'hide');
+  extraInfo.classList.add('extra-info');
   const infoContainer = document.createElement('div');
   infoContainer.classList.add('info-container');
 

@@ -24,13 +24,6 @@
   cursor: pointer;
 }
 
-// .card:not(.edit-mode):hover .extra-info,
-// .card {
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
-// }
-
 .edit-mode {
   align-items: center !important;
   .main-info {
@@ -70,6 +63,7 @@
       justify-content: space-around;
       padding-top: 0.75rem;
       width: 75%;
+      align-items: center;
     }
 
     .edit-buttons-div {
@@ -166,6 +160,10 @@
   justify-content: center;
   width: 100%;
 
+  @include media-breakpoint-down(md) {
+    flex-direction: row !important;
+  }
+
   .task-title {
     align-items: flex-start;
     width: 90%;
@@ -204,9 +202,9 @@
   }
 }
 
-// .hide {
-//   display: none !important;
-// }
+.hide {
+  display: none !important;
+}
 
 .completed-items {
   display: flex;
