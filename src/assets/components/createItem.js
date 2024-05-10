@@ -69,6 +69,11 @@ const submitForm = (event, type) => {
     return;
   }
 
+  let date = new Date(inputDueDate);
+  date.setMinutes(date.getMinutes() + date.getTimezoneOffset());
+  date.toLocaleDateString();
+  console.log(date);
+
   let newItem;
   if (type == 'tasks') {
     // Add a new Task
@@ -77,7 +82,7 @@ const submitForm = (event, type) => {
     newItem = new Task(
       inputTitle,
       inputDescription,
-      inputDueDate,
+      date,
       inputPriority,
       inputProject
     );
@@ -94,6 +99,8 @@ const submitForm = (event, type) => {
       inputPriority
     );
   }
+
+  console.log(newItem);
 
   // Store the new item in localStorage
   storeItem(newItem, type);
