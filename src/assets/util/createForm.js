@@ -4,13 +4,13 @@ export default function createForm(config = {}) {
   const form = document.createElement('form');
   form.innerHTML = `
         <div class="main-info">
-          <div class="mb-3">
+          <div class="mb-3 title-div">
             <label for="configTitle" class="form-label">Title</label>
             <input type="text" class="form-control" id="configTitle" name="configTitle" value="${
               config.title || ''
             }" required>
           </div>
-          <div class="mb-3">
+          <div class="mb-3 description-div">
             <label for="configDescription" class="form-label">Description</label>
             <textarea class="form-control" id="configDescription" name="configDescription" rows="3">${
               config.description || ''

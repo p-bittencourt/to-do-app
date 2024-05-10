@@ -73,7 +73,6 @@ function updateTaskDisplay() {
   content.innerHTML = '';
   taskModalInstance.hide();
   const tasks = fetchItems('tasks');
-  // content.appendChild(addNewTaskDiv);
   content.appendChild(displayItems(tasks, 'tasks'));
 }
 
@@ -81,7 +80,6 @@ function updateProjectDisplay() {
   content.innerHTML = '';
   projectModalInstance.hide();
   const projects = fetchItems('projects');
-  // content.appendChild(addNewTaskDiv);
   content.appendChild(displayItems(projects, 'projects'));
 
   const form = document.querySelector('#tasksForm');
