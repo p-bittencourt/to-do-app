@@ -7,6 +7,7 @@ import {
   updateItemInStorage,
 } from '../util/handleStorage';
 import createForm from '../util/createForm';
+import createNoteForm from '../util/createNoteForm';
 
 // Create a modal for creating a new item
 // Type will tell if it is a project or a task
@@ -14,7 +15,12 @@ function createItem(type) {
   const modal = document.createElement('div');
   modal.classList.add('modal', 'fade');
   modal.id = `create${type}Modal`;
-  const form = createForm();
+  let form;
+  if (type == 'notes') {
+    form = createNoteForm();
+  } else {
+    form = createForm();
+  }
   // Add project select to task form to allow users
   // to set a project for the task
   if (type == 'tasks') {

@@ -13,6 +13,7 @@ let content = document.getElementById('main-content');
 //#region
 const projectsLink = document.getElementById('projects-link');
 const tasksLink = document.getElementById('tasks-link');
+const notesLink = document.getElementById('notes-link');
 projectsLink.addEventListener('click', (event) => {
   event.preventDefault();
   updateProjectDisplay();
@@ -21,6 +22,10 @@ projectsLink.addEventListener('click', (event) => {
 tasksLink.addEventListener('click', (event) => {
   event.preventDefault();
   updateTaskDisplay();
+});
+notesLink.addEventListener('click', (event) => {
+  event.preventDefault();
+  updateNoteDisplay();
 });
 //#endregion
 
@@ -33,6 +38,10 @@ const taskModalInstance = new Modal(taskModal);
 const projectModal = createItem('projects');
 document.body.appendChild(projectModal);
 const projectModalInstance = new Modal(projectModal);
+
+const noteModal = createItem('notes');
+document.body.appendChild(noteModal);
+const noteModalInstance = new Modal(noteModal);
 //#endregion
 
 // NEW PLACEMENT OF ADD TASK AND PROJECT BUTTONS
@@ -46,6 +55,10 @@ addNewProjectButton.addEventListener('click', () => {
   showProjectModal();
 });
 
+const addNewNoteButton = document.getElementById('add-note-btn');
+addNewNoteButton.addEventListener('click', () => {
+  noteModalInstance.show();
+});
 // event listeners
 document.body.addEventListener('taskUpdated', updateTaskDisplay);
 document.body.addEventListener('projectUpdated', updateProjectDisplay);
@@ -86,6 +99,13 @@ function updateProjectDisplay() {
   if (form) {
     updateProjectSelect(form);
   }
+}
+
+function updateNoteDisplay() {
+  content.innerHTML = '';
+  noteModalInstance.hide();
+  const notes = fetchItems('notes');
+  content.appendChild(displayItems(notes, 'notes'));
 }
 
 function updateProjectSelect(form) {

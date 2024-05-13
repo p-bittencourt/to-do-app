@@ -1,4 +1,8 @@
-import { displayCard, completedItemCard } from '../util/displayCard';
+import {
+  displayCard,
+  completedItemCard,
+  displayNoteCard,
+} from '../util/displayCard';
 
 // Creates the itemsDisplay div
 export default function displayItems(items, type) {
@@ -48,7 +52,11 @@ const itemCard = (item, type) => {
   itemDiv.id = item.id;
 
   // Appends the displayCard to the outer div
-  itemDiv.appendChild(displayCard(item, type));
+  if (type == 'notes') {
+    itemDiv.appendChild(displayNoteCard(item));
+  } else {
+    itemDiv.appendChild(displayCard(item, type));
+  }
   return itemDiv;
 };
 

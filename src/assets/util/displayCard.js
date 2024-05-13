@@ -233,4 +233,45 @@ const toggleExtraInfoVisibility = (event) => {
   extraInfo.classList.toggle('show');
 };
 
-export { displayCard, completedItemCard };
+function displayNoteCard(note) {
+  const noteCard = document.createElement('div');
+  noteCard.classList.add('note-card');
+  noteCard.id = note.id;
+
+  const noteTitle = document.createElement('h4');
+  noteTitle.textContent = note.title;
+  noteCard.appendChild(noteTitle);
+
+  const noteDescription = document.createElement('p');
+  noteDescription.textContent = note.description;
+  noteCard.appendChild(noteDescription);
+
+  const noteButtons = document.createElement('div');
+  noteButtons.classList.add('note-buttons');
+
+  const editButton = document.createElement('button');
+  editButton.classList.add('btn', 'btn-primary', 'm-1');
+  editButton.textContent = 'Edit';
+  editButton.addEventListener('click', () => {
+    editItem(note, 'notes');
+  });
+
+  const deleteButton = document.createElement('button');
+  deleteButton.classList.add('btn', 'btn-danger', 'm-1');
+  deleteButton.textContent = 'Delete';
+  deleteButton.addEventListener('click', () => {
+    const confirmDelete = confirm('Are you sure you want to delete?');
+    if (confirmDelete) {
+      deleteItem(note, 'notes');
+    }
+  });
+
+  noteButtons.appendChild(editButton);
+  noteButtons.appendChild(deleteButton);
+
+  noteCard.appendChild(noteButtons);
+
+  return noteCard;
+}
+
+export { displayCard, completedItemCard, displayNoteCard };
