@@ -62,6 +62,7 @@ addNewNoteButton.addEventListener('click', () => {
 // event listeners
 document.body.addEventListener('taskUpdated', updateTaskDisplay);
 document.body.addEventListener('projectUpdated', updateProjectDisplay);
+document.body.addEventListener('noteUpdated', updateNoteDisplay);
 
 // functions to update display
 //#region

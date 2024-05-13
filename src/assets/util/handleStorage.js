@@ -110,8 +110,10 @@ function updateEvent(key) {
   let event;
   if (key == 'projects') {
     event = new Event('projectUpdated');
-  } else {
+  } else if (key == 'tasks') {
     event = new Event('taskUpdated');
+  } else {
+    event = new Event('noteUpdated');
   }
   document.body.dispatchEvent(event);
 }

@@ -1,5 +1,6 @@
 import Project from '../util/Project';
 import Task from '../util/Task';
+import Note from '../util/Note';
 import {
   storeItem,
   fetchItems,
@@ -63,6 +64,10 @@ const itemModal = (formElement, type) => {
 
 // Submit the form
 const submitForm = (event, type) => {
+  if (type == 'notes') {
+    submitNoteForm(event);
+    return;
+  }
   event.preventDefault();
   const formData = new FormData(document.getElementById(`${type}Form`));
   const inputTitle = formData.get('configTitle');
@@ -110,6 +115,24 @@ const submitForm = (event, type) => {
 
   // Clear the form for the next submissions
   const form = document.getElementById(`${type}Form`);
+  form.reset();
+};
+
+const submitNoteForm = (event) => {
+  event.preventDefault();
+  const formData = new FormData(document.getElementById('notesForm'));
+  const inputTitle = formData.get('configTitle');
+  const inputDescription = formData.get('configDescription');
+
+  if (!inputTitle.trim()) {
+    alert('Title is required');
+    return;
+  }
+
+  const newItem = new Note(inputTitle, inputDescription);
+  storeItem(newItem, 'notes');
+
+  const form = document.getElementById('notesForm');
   form.reset();
 };
 
