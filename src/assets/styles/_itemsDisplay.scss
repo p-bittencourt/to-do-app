@@ -228,3 +228,21 @@
     overflow: hidden;
   }
 }
+
+.note-info {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch !important;
+  width: 100%;
+  padding: 1rem;
+
+  .note-title,
+  .note-description {
+    width: 100% !important;
+  }
+}
+
+.note-buttons {
+  display: flex;
+  justify-content: flex-end;
+}

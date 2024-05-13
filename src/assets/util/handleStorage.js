@@ -1,4 +1,5 @@
 import createForm from './createForm';
+import createNoteForm from './createNoteForm';
 
 function fetchItems(key) {
   return JSON.parse(localStorage.getItem(key)) || [];
@@ -34,7 +35,13 @@ function deleteTaskFromProject(task) {
 }
 
 function editItem(item, key) {
-  const form = createForm(item);
+  let form;
+  if (key == 'notes') {
+    form = createNoteForm(item);
+  } else {
+    form = createForm(item);
+  }
+
   const confirmEdit = document.createElement('button');
   confirmEdit.type = 'submit';
   confirmEdit.textContent = 'Confirm';
@@ -68,7 +75,21 @@ function editItem(item, key) {
   });
 }
 
+function handleNoteInfo(form, item, key) {
+  const newTitle = form.querySelector('#configTitle').value;
+  const newDescription = form.querySelector('#configDescription').value;
+
+  item.title = newTitle;
+  item.description = newDescription;
+
+  updateItemInStorage(item, key);
+}
+
 function handleNewItemInfo(form, item, key) {
+  if (key == 'notes') {
+    handleNoteInfo(form, item, key);
+    return;
+  }
   const newTitle = form.querySelector('#configTitle').value;
   const newDescription = form.querySelector('#configDescription').value;
   const newDueDate = form.querySelector('#configDueDate').value;
