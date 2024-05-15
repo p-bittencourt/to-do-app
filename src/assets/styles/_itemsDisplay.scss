@@ -246,3 +246,13 @@
   display: flex;
   justify-content: flex-end;
 }
+
+#notesForm {
+  width: 70%;
+}
+
+form {
+  @include media-breakpoint-down(md) {
+    width: 90%;
+  }
+}
