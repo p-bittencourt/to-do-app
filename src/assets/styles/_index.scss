@@ -34,7 +34,7 @@ body::after {
   height: 100vh;
   overflow: auto;
   overflow-x: hidden;
-  padding-top: 1rem;
+  // padding-top: 1rem;
 
   @include media-breakpoint-up(md) {
     height: 85vh;
@@ -50,6 +50,7 @@ body::after {
     flex-direction: row;
     justify-content: start;
     align-items: center;
+    // padding-top: 1rem;
 
     img {
       height: 35px;

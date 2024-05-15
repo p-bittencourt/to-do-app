@@ -11878,7 +11878,6 @@ body::after {
   height: 100vh;
   overflow: auto;
   overflow-x: hidden;
-  padding-top: 1rem;
 }
 @media (min-width: 768px) {
   .app-container {
