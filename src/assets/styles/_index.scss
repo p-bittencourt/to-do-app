@@ -34,6 +34,7 @@ body::after {
   height: 100vh;
   overflow: auto;
   overflow-x: hidden;
+  padding-top: 1rem;
 
   @include media-breakpoint-up(md) {
     height: 85vh;
