@@ -11907,6 +11907,7 @@ body::after {
 @media (max-width: 767.98px) {
   .app-container .header-container {
     justify-content: space-between;
+    margin-top: 1rem;
   }
 }
 .app-container .content-container {
