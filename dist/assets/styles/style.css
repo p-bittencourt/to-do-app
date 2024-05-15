@@ -11848,6 +11848,7 @@ html,
 body {
   height: 100%;
   margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11877,6 +11878,7 @@ body::after {
   height: 100vh;
   overflow: auto;
   overflow-x: hidden;
+  padding-top: 1rem;
 }
 @media (min-width: 768px) {
   .app-container {
