@@ -45,6 +45,7 @@ const noteModalInstance = new Modal(noteModal);
 //#endregion
 
 // NEW PLACEMENT OF ADD TASK AND PROJECT BUTTONS
+//#region
 const addNewTaskButton = document.getElementById('add-task-btn');
 addNewTaskButton.addEventListener('click', () => {
   showTaskModal();
@@ -59,6 +60,8 @@ const addNewNoteButton = document.getElementById('add-note-btn');
 addNewNoteButton.addEventListener('click', () => {
   noteModalInstance.show();
 });
+//#endregion
+
 // event listeners
 document.body.addEventListener('taskUpdated', updateTaskDisplay);
 document.body.addEventListener('projectUpdated', updateProjectDisplay);
@@ -110,6 +113,7 @@ function updateNoteDisplay() {
 }
 
 function updateProjectSelect(form) {
+  // this function updates the select from the task form to correctly show the projects
   const oldProjectSelect = form.querySelector('#configProject').parentElement;
   const newProjectSelect = createProjectSelect();
   form
